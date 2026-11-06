@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="700" viewBox="0 0 800 700" role="img" aria-labelledby="title description">
+  <title id="title">Illustration of a golf tournament</title>
+  <desc id="description">A minimal illustration of a golfer following through on a swing.</desc>
+  <rect width="800" height="700" fill="#d9d8d0"/>
+  <circle cx="583" cy="149" r="80" fill="#f5f3ee" opacity=".72"/>
+  <path d="M0 462c180-54 302-13 445 16 141 29 239 14 355-28v250H0V462Z" fill="#9c684c" opacity=".38"/>
+  <path d="M0 532c165-37 328-11 447 18 134 33 245 14 353-20v170H0V532Z" fill="#1e2926" opacity=".2"/>
+  <path d="M137 535c130-15 203-9 318 24" fill="none" stroke="#f5f3ee" stroke-opacity=".8" stroke-width="5" stroke-dasharray="14 14"/>
+  <circle cx="380" cy="229" r="38" fill="#9c684c"/>
+  <path d="M345 226c3-51 70-68 86-17-23-8-44-24-53-43-6 28-17 46-33 60Z" fill="#1e2926"/>
+  <path d="m354 272-36 150 102 30 55-127-34-47c-29 13-59 11-87-6Z" fill="#9c684c"/>
+  <path d="m333 400-44 133m165-110 41 140m-167-143 110-118m-136 225-35 22m220 10 54 2" fill="none" stroke="#1e2926" stroke-linecap="round" stroke-width="24"/>
+  <path d="m416 319 159-158" stroke="#1e2926" stroke-linecap="round" stroke-width="8"/>
+  <path d="M570 162l80-20" stroke="#9c684c" stroke-linecap="round" stroke-width="7"/>
+  <circle cx="665" cy="135" r="8" fill="#f5f3ee" stroke="#1e2926" stroke-width="3"/>
+</svg>
