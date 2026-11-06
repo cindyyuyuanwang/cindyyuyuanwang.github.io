@@ -16,18 +16,21 @@
   });
   matchMedia("(min-width: 961px)").addEventListener("change", event => { if (event.matches) setMenu(false); });
 
-  // Highlight the section currently in view
+  // Highlight the section currently in view (none while in the hero)
   const navLinks = [...document.querySelectorAll(".desktop-nav a")];
+  const setCurrent = id => navLinks.forEach(link => {
+    if (link.hash === "#" + id) link.setAttribute("aria-current", "true");
+    else link.removeAttribute("aria-current");
+  });
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
-        navLinks.forEach(link => {
-          if (link.hash === "#" + entry.target.id) link.setAttribute("aria-current", "true");
-          else link.removeAttribute("aria-current");
-        });
+        setCurrent(entry.target.id === "top" ? null : entry.target.id);
       });
     }, { rootMargin: "-45% 0px -50% 0px" });
+    const hero = document.getElementById("top");
+    if (hero) observer.observe(hero);
     navLinks.forEach(link => { const target = document.querySelector(link.hash); if (target) observer.observe(target); });
   }
 
