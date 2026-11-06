@@ -1,0 +1,76 @@
+name: Deploy cindyyw.com to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Privacy fail-safe gate
+        run: |
+          set -euo pipefail
+          found=0
+          while IFS= read -r -d '' path; do
+            echo "::error::Protected path present in checkout: $path"
+            found=1
+          done < <(find . -path ./.git -prune -o \( -name 'private_records' -o -name 'profile_cindy.txt' -o -name 'iCloud Photos' -o -name 'conf_token.txt' \) -print0)
+          if git ls-files | grep -Ei '(^|/)(private_records/|profile_cindy\.txt$|iCloud Photos/|conf_token\.txt$)'; then
+            echo "::error::Protected path is tracked by git"
+            found=1
+          fi
+          if [ "$found" -ne 0 ]; then exit 1; fi
+          echo "Privacy gate passed."
+
+      - name: Stage public artifact only
+        run: |
+          set -euo pipefail
+          mkdir -p _site/assets
+          cp index.html CNAME _site/
+          cp -R css js _site/
+          find assets -maxdepth 1 -type f \( -iname '*.svg' -o -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' -o -iname '*.avif' -o -iname '*.mp4' -o -iname '*.webm' -o -iname '*.vtt' \) -exec cp {} _site/assets/ \;
+          for dir in assets/*/; do
+            [ -d "$dir" ] || continue
+            case "$dir" in
+              "assets/iCloud Photos/") continue ;;
+            esac
+            cp -R "$dir" _site/assets/
+          done
+          if find _site \( -iname 'profile_cindy.txt' -o -iname 'private_records' -o -iname 'iCloud Photos' \) | grep -q .; then
+            echo "::error::Protected content leaked into _site"
+            exit 1
+          fi
+          find _site -type f | sort
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
