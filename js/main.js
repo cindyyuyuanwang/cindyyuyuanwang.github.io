@@ -17,7 +17,7 @@
   matchMedia("(min-width: 961px)").addEventListener("change", event => { if (event.matches) setMenu(false); });
 
   // Highlight the section currently in view (none while in the hero)
-  const navLinks = [...document.querySelectorAll(".desktop-nav a")];
+  const navLinks = [...document.querySelectorAll('.desktop-nav a[href^="#"]')];
   const setCurrent = id => navLinks.forEach(link => {
     if (link.hash === "#" + id) link.setAttribute("aria-current", "true");
     else link.removeAttribute("aria-current");

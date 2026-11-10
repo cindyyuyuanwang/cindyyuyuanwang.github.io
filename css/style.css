@@ -152,9 +152,9 @@ cite { font-style: italic; font-family: var(--serif); font-size: 1.08em; }
   transition: transform 0.3s var(--ease);
 }
 .desktop-nav a:hover,
-.desktop-nav a[aria-current="true"] { color: var(--ink); }
+.desktop-nav a[aria-current] { color: var(--ink); }
 .desktop-nav a:hover::after,
-.desktop-nav a[aria-current="true"]::after { transform: scaleX(1); }
+.desktop-nav a[aria-current]::after { transform: scaleX(1); }
 
 .menu-toggle {
   display: none;
@@ -178,7 +178,10 @@ cite { font-style: italic; font-family: var(--serif); font-size: 1.08em; }
   border-top: 1px solid var(--line);
   padding: 0.5rem var(--gutter) 1.25rem;
   display: grid;
+  max-height: calc(100dvh - var(--header-h));
+  overflow-y: auto;
 }
+.mobile-menu a[aria-current="page"] { color: var(--vermilion); }
 .mobile-menu[hidden] { display: none; }
 .mobile-menu a {
   font-family: var(--serif);
@@ -313,7 +316,7 @@ figcaption .meta {
 .hero-text h1,
 .hero-text .lede { color: var(--ink); }
 .hero-figure { margin: 0; }
-.hero-image { aspect-ratio: 4 / 5; max-height: calc(100vh - var(--header-h) - 6rem); min-height: 22rem; }
+.hero-image { aspect-ratio: 3 / 2; height: auto; }
 
 .hero-links {
   display: flex;
@@ -424,7 +427,38 @@ figcaption .meta {
   margin-top: clamp(2.5rem, 5vw, 4.5rem);
 }
 
-.stage-pair { grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr); align-items: start; }
+.theatre-pair { align-items: start; }
+.theatre-pair .photo img { aspect-ratio: 16 / 9; }
+.golf-mentoring { margin-top: clamp(2rem, 4vw, 3rem); align-items: center; }
+.photo--awards img { aspect-ratio: 2.15; }
+
+/* Personal pages */
+.story-page {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: clamp(3rem, 7vw, 6rem) var(--gutter) 0;
+}
+.story-intro,
+.festival-story,
+.personal-stories {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 5vw, 4rem);
+}
+.story-intro { align-items: center; }
+.story-intro h1 {
+  font-size: clamp(3rem, 6.3vw, 5.3rem);
+  margin-bottom: 1.5rem;
+}
+.festival-story,
+.personal-stories {
+  margin-top: clamp(3rem, 7vw, 6rem);
+  padding-top: clamp(1.75rem, 3vw, 2.5rem);
+  border-top: 1px solid var(--line-strong);
+}
+.personal-stories h2 { font-size: clamp(1.9rem, 3.5vw, 2.8rem); margin-bottom: 1rem; }
+.personal-stories p { color: var(--ink-soft); }
+.story-next { margin-top: 2.5rem; }
 
 .notebook-head {
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
@@ -687,7 +721,6 @@ html.lightbox-open { overflow: hidden; }
   .split,
   .split--text { grid-template-columns: minmax(0, 1fr); }
   .hero-figure { order: -1; }
-  .hero-image { aspect-ratio: 4 / 3; max-height: 62vh; min-height: 0; }
   .split--reverse > .prose { order: 0; }
   .notes { grid-template-columns: minmax(0, 1fr); }
   .note { padding: 1.75rem 0; }
@@ -696,6 +729,9 @@ html.lightbox-open { overflow: hidden; }
 
 @media (max-width: 700px) {
   body { font-size: 1rem; }
+  .story-intro,
+  .festival-story,
+  .personal-stories { grid-template-columns: minmax(0, 1fr); }
   .photo-pair,
   .photo-pair--even { grid-template-columns: minmax(0, 1fr); }
   .photo-trio { grid-template-columns: repeat(2, minmax(0, 1fr)); }

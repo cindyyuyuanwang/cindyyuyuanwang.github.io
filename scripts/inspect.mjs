@@ -20,7 +20,7 @@ export async function startServer() {
       }
       const relative = segments.length ? segments.join(path.sep) : "index.html";
       const file = path.resolve(root, relative);
-      if (!file.startsWith(root + path.sep) || !["index.html", "css", "js", "assets"].includes(segments[0] || "index.html")) {
+      if (!file.startsWith(root + path.sep) || !["index.html", "friends.html", "personal-notes.html", "css", "js", "assets"].includes(segments[0] || "index.html")) {
         res.writeHead(403).end("Forbidden"); return;
       }
       const realFile = await fs.realpath(file);
@@ -173,6 +173,20 @@ async function inspect() {
           top: el.getBoundingClientRect().top,
           headerBottom: document.querySelector(".site-header").getBoundingClientRect().bottom
         }));
+      }
+      const festivalLink = page.locator('#music a[href="friends.html#school-festival"]');
+      await festivalLink.click();
+      await page.waitForURL("**/friends.html#school-festival");
+      const festivalVisible = await page.locator("#school-festival").isVisible();
+      await page.locator('main a[href="personal-notes.html"]').click();
+      await page.waitForURL("**/personal-notes.html");
+      const pageLink = page.locator('nav a[aria-current="page"]:visible');
+      if (await page.locator(".menu-toggle").isVisible()) await page.locator(".menu-toggle").click();
+      const notesSelected = await pageLink.textContent() === "Personal notes";
+      await page.locator('nav a[href="./#gallery"]:visible').click();
+      await page.waitForURL("**/#gallery");
+      if (!festivalVisible || !notesSelected || !(await page.locator("#gallery").isVisible())) {
+        throw new Error(`Personal page navigation failed on ${name}`);
       }
       report.viewports.push(entry);
       await page.close();

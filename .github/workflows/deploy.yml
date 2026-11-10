@@ -40,7 +40,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p _site/assets
-          cp index.html CNAME _site/
+          cp index.html friends.html personal-notes.html CNAME _site/
           cp -R css js _site/
           find assets -maxdepth 1 -type f \( -iname '*.svg' -o -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' -o -iname '*.avif' -o -iname '*.mp4' -o -iname '*.webm' -o -iname '*.vtt' \) -exec cp {} _site/assets/ \;
           for dir in assets/*/; do
