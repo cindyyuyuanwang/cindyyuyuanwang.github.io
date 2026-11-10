@@ -119,15 +119,16 @@ async function inspect() {
 
       const overflow = () => page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
       entry.gallery = { filters: {} };
-      for (const group of ["music", "stage", "golf", "football", "everyday", "outdoors", "all"]) {
-        await page.locator(`.filter[data-filter="${group}"]`).click();
+      for (const group of ["music", "stage", "golf", "football", "everyday", "outdoors", "films", "all"]) {
+        await page.locator(`label[for="filter-${group}"]`).click();
         entry.gallery.filters[group] = await page.evaluate(g => {
-          const visible = [...document.querySelectorAll(".gallery-item")].filter(el => !el.hidden && el.offsetParent !== null);
-          return { visible: visible.length, wrongGroup: visible.filter(el => g !== "all" && el.dataset.group !== g).length, overflow: document.documentElement.scrollWidth > innerWidth };
+          const visible = [...document.querySelectorAll(".gallery-item")].filter(el => el.getClientRects().length);
+          const wrong = g === "films" ? visible.filter(el => !el.querySelector("video")) : visible.filter(el => g !== "all" && el.dataset.group !== g);
+          return { visible: visible.length, wrongGroup: wrong.length, overflow: document.documentElement.scrollWidth > innerWidth };
         }, group);
       }
-      await page.locator('.filter[data-filter="golf"]').click();
-      const firstGolf = page.locator('.gallery-item:not([hidden]) .gallery-button').first();
+      await page.locator('label[for="filter-golf"]').click();
+      const firstGolf = page.locator('.gallery-item:visible .gallery-button').first();
       await firstGolf.click();
       await page.waitForFunction(() => { const img = document.querySelector(".lightbox-media img"); return img && img.complete && img.naturalWidth > 0; }, null, { timeout: 10000 }).catch(() => {});
       entry.gallery.lightboxOpen = await page.evaluate(() => ({
@@ -146,20 +147,23 @@ async function inspect() {
       await page.keyboard.press("Escape");
       entry.gallery.closedWithEscape = await page.waitForFunction(() => !document.getElementById("lightbox").open && !document.documentElement.classList.contains("lightbox-open"), null, { timeout: 3000 }).then(() => true, () => false);
       entry.gallery.focusReturned = await page.evaluate(() => document.activeElement?.classList.contains("gallery-button"));
-      await page.locator('.filter[data-filter="music"]').click();
-      await page.locator('.gallery-item:not([hidden]) .gallery-button[data-video$="/flute-concert-section.mp4"]').click();
-      entry.gallery.lightboxVideo = await page.evaluate(() => new Promise(resolve => {
-        const v = document.querySelector(".lightbox-media video");
-        if (!v) return resolve({ present: false });
-        const done = () => resolve({ present: true, readyState: v.readyState, error: v.error ? v.error.code : null });
-        if (v.readyState >= 1) return done();
-        v.addEventListener("loadedmetadata", done, { once: true });
-        v.addEventListener("error", done, { once: true });
-        setTimeout(done, 10000);
-      }));
-      await page.locator(".lightbox-close").click();
+      await page.locator('label[for="filter-films"]').click();
+      entry.gallery.filmsPlayed = [];
+      for (const figure of await page.locator(".gallery-film:visible").all()) {
+        const link = figure.locator(".film-link");
+        await figure.locator(".film-start").click();
+        const player = figure.locator("video");
+        await page.waitForFunction(video => !video.paused && video.currentTime > 0.15, await player.elementHandle(), { timeout: 10000 });
+        await link.click();
+        await page.waitForFunction(() => {
+          const video = document.querySelector("dialog[open] video");
+          return video && !video.paused && video.currentTime > 0.15;
+        }, null, { timeout: 10000 });
+        entry.gallery.filmsPlayed.push(await link.getAttribute("href"));
+        await page.locator(".lightbox-close").click();
+      }
       entry.gallery.closedWithButton = await page.evaluate(() => !document.getElementById("lightbox").open);
-      await page.locator('.filter[data-filter="all"]').click();
+      await page.locator('label[for="filter-all"]').click();
       entry.gallery.finalOverflow = await overflow();
 
       if (name === "mobile") {
@@ -168,7 +172,7 @@ async function inspect() {
         await page.screenshot({ path: path.join(output, "mobile-menu.png") });
         await page.locator('#mobile-menu a[href="#golf"]').click();
         await page.waitForTimeout(400);
-        entry.mobileMenuClosed = await page.locator("#mobile-menu").evaluate(el => el.hidden);
+        entry.mobileMenuClosed = !(await page.locator("#mobile-menu").isVisible());
         entry.anchor = await page.locator("#golf").evaluate(el => ({
           top: el.getBoundingClientRect().top,
           headerBottom: document.querySelector(".site-header").getBoundingClientRect().bottom
@@ -178,26 +182,40 @@ async function inspect() {
       await festivalLink.click();
       await page.waitForURL("**/friends.html#school-festival");
       const festivalVisible = await page.locator("#school-festival").isVisible();
-      await page.locator('main a[href="personal-notes.html"]').click();
-      await page.waitForURL("**/personal-notes.html");
-      const pageLink = page.locator('nav a[aria-current="page"]:visible');
+      await page.locator('main a[href="./#personal-notes"]').click();
+      await page.waitForURL("**/#personal-notes");
+      const notesVisible = await page.locator("main #personal-notes h2").isVisible();
       if (await page.locator(".menu-toggle").isVisible()) await page.locator(".menu-toggle").click();
-      const notesSelected = await pageLink.textContent() === "Personal notes";
-      await page.locator('nav a[href="./#gallery"]:visible').click();
+      await page.locator('nav a[href="#gallery"]:visible').click();
       await page.waitForURL("**/#gallery");
-      if (!festivalVisible || !notesSelected || !(await page.locator("#gallery").isVisible())) {
+      if (!festivalVisible || !notesVisible || !(await page.locator("#gallery").isVisible())) {
         throw new Error(`Personal page navigation failed on ${name}`);
       }
       report.viewports.push(entry);
       await page.close();
     }
+    const plain = await browser.newContext({ javaScriptEnabled: false });
+    const fallback = await plain.newPage();
+    await fallback.goto(url + "/personal-notes.html");
+    await fallback.waitForURL("**/#personal-notes");
+    await fallback.locator('label[for="filter-films"]').click();
+    if (await fallback.locator(".gallery-item:visible").count() !== 4 ||
+        await fallback.locator(".gallery-film video[controls]:visible").count() !== 4) {
+      throw new Error("The film collection must work without JavaScript");
+    }
+    await fallback.locator('label[for="filter-golf"]').click();
+    const photoLink = fallback.locator(".gallery-button:visible").first();
+    const fullPhoto = await photoLink.getAttribute("href");
+    await photoLink.click();
+    await fallback.waitForURL(new URL(fullPhoto, url).href);
+    await plain.close();
     await fs.writeFile(path.join(output, "report.json"), JSON.stringify(report, null, 2));
     const galleryFailed = g => !g || Object.values(g.filters).some(f => f.wrongGroup || f.overflow || !f.visible)
       || g.filters.all.visible !== 40 || !g.lightboxOpen.open || !g.lightboxOpen.imageLoaded || !g.lightboxOpen.imageFits
       || g.lightboxOverflow || g.afterArrowRight === g.lightboxOpen.count || g.afterArrowLeft !== g.lightboxOpen.count
-      || !g.closedWithEscape || !g.focusReturned || !g.lightboxVideo.present || g.lightboxVideo.readyState < 1 || g.lightboxVideo.error
+      || !g.closedWithEscape || !g.focusReturned || g.filmsPlayed.length !== 4 || g.filters.films.visible !== 4
       || !g.closedWithButton || g.finalOverflow;
-    const videoFailed = v => v.videos.length !== 2 || v.videos.some(x => x.error || x.readyState < 1 || !x.poster);
+    const videoFailed = v => v.videos.length !== 6 || v.videos.some(x => x.error || x.readyState < 1 || !x.poster);
     const failed = report.viewports.some(v => v.horizontalOverflow || v.brokenImages.length || v.videoErrors.length || videoFailed(v) || galleryFailed(v.gallery) || v.consoleErrors.length || v.pageErrors.length || v.failedRequests.length || v.httpErrors.length || v.mobileMenuClosed === false || (v.anchor && v.anchor.top < v.anchor.headerBottom - 1));
     console.log(`Visual inspection complete: ${report.viewports.length} viewports; issues: ${failed ? "yes (see report)" : "none"}.`);
     if (failed) process.exitCode = 1;

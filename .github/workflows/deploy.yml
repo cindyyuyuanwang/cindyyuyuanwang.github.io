@@ -42,6 +42,11 @@ jobs:
           mkdir -p _site/assets
           cp index.html friends.html personal-notes.html CNAME _site/
           cp -R css js _site/
+          # Give each published stylesheet and script a URL tied to its contents.
+          css_version=$(sha256sum css/style.css | cut -c1-12)
+          js_version=$(sha256sum js/main.js | cut -c1-12)
+          sed -i -e "s|./css/style.css\"|./css/style.css?v=$css_version\"|" \
+                 -e "s|./js/main.js\"|./js/main.js?v=$js_version\"|" _site/index.html _site/friends.html
           find assets -maxdepth 1 -type f \( -iname '*.svg' -o -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' -o -iname '*.avif' -o -iname '*.mp4' -o -iname '*.webm' -o -iname '*.vtt' \) -exec cp {} _site/assets/ \;
           for dir in assets/*/; do
             [ -d "$dir" ] || continue

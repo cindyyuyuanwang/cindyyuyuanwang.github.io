@@ -23,23 +23,22 @@
           <a href="#stage">Theatre</a>
           <a href="friends.html">Friends</a>
           <a href="#notebook">Notebook</a>
-          <a href="personal-notes.html">Personal notes</a>
+          <a href="#personal-notes">Personal notes</a>
           <a href="#gallery">Gallery</a>
         </nav>
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
-          <span class="menu-toggle-label">Menu</span>
-          <span class="menu-toggle-icon" aria-hidden="true"><span></span><span></span></span>
-        </button>
+        <details class="mobile-drawer">
+          <summary class="menu-toggle" aria-controls="mobile-menu">Menu <span class="menu-toggle-icon" aria-hidden="true"><span></span><span></span></span></summary>
+          <nav class="mobile-menu" id="mobile-menu" aria-label="Main (mobile)">
+            <a href="#golf">Golf</a>
+            <a href="#music">Music</a>
+            <a href="#stage">Theatre</a>
+            <a href="friends.html">Friends</a>
+            <a href="#notebook">Notebook</a>
+            <a href="#personal-notes">Personal notes</a>
+            <a href="#gallery">Gallery</a>
+          </nav>
+        </details>
       </div>
-      <nav class="mobile-menu" id="mobile-menu" aria-label="Main (mobile)" hidden>
-        <a href="#golf">Golf</a>
-        <a href="#music">Music</a>
-        <a href="#stage">Theatre</a>
-        <a href="friends.html">Friends</a>
-        <a href="#notebook">Notebook</a>
-        <a href="personal-notes.html">Personal notes</a>
-        <a href="#gallery">Gallery</a>
-      </nav>
     </header>
 
     <main id="main">
@@ -48,7 +47,7 @@
           <p class="eyebrow">Shanghai &middot; Grade 9</p>
           <h1 id="hero-title">Hi, I&rsquo;m Cindy.</h1>
           <p class="lede">Golf is my favourite sport. I&rsquo;m on my school team in Shanghai, and you can also find me in the flute section of our school orchestra.</p>
-          <p>I wanted a place to keep our tournament photos and concert clips. There are a few stories here, too, including how my classmates and I ended up playing in a band together.</p>
+          <p>I keep our tournament photos and concert clips here, along with the story of a band my classmates and I put together.</p>
           <div class="hero-links">
             <a class="button" href="#golf">On the golf team</a>
             <a class="text-link" href="friends.html">Meet my friends <span aria-hidden="true">&rarr;</span></a>
@@ -72,7 +71,7 @@
           <div class="prose">
             <p class="lede">I started playing golf in Grade 2. In 2025, my school named me Golfer of the Year.</p>
             <p>Since Grade 6, I&rsquo;ve practised about five hours a week. I represent my school at tournaments in Shanghai, including the SSSA Campus Golf League, where I finished third in 2024 and fourth in 2025.</p>
-            <p>I also play on the junior tour. One result I&rsquo;m especially proud of is finishing second at the 2024 MJGT Shanghai Sports Culture Tournament, where more than 100 players competed.</p>
+            <p>I also play on the junior tour. At the 2024 MJGT Shanghai Sports Culture Tournament, I finished second in a field of more than 100.</p>
           </div>
           <figure class="photo">
             <picture>
@@ -207,388 +206,432 @@
         </div>
       </section>
 
+      <section class="section" id="personal-notes" aria-labelledby="personal-notes-title">
+        <div class="section-head">
+          <h2 id="personal-notes-title">Personal notes</h2>
+        </div>
+        <div class="split personal-notes">
+          <figure class="photo">
+            <picture>
+              <source type="image/webp" srcset="assets/media/outdoors-ridge-group-480.webp 480w, assets/media/outdoors-ridge-group-900.webp 900w, assets/media/outdoors-ridge-group-1600.webp 1600w" sizes="(max-width: 960px) 92vw, 45vw">
+              <img src="assets/media/outdoors-ridge-group-480.jpg" srcset="assets/media/outdoors-ridge-group-480.jpg 480w, assets/media/outdoors-ridge-group-900.jpg 900w, assets/media/outdoors-ridge-group-1600.jpg 1600w" sizes="(max-width: 960px) 92vw, 45vw" width="480" height="360" alt="A hiking group with backpacks pauses on a rocky ridge above the trees" style="object-position: 50% 48%" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>With friends on a hike.</figcaption>
+          </figure>
+          <div class="prose">
+            <p class="lede">If I have a free afternoon, I like to spend it with friends. They say I&rsquo;m much the same on the course as I am in class. I like being the one who makes them laugh.</p>
+            <p>My mum says I can usually cheer someone up at home, too. When I see our older relatives, I like to sit with them and find out how they&rsquo;ve been.</p>
+            <p>One thing I miss is football. I joined the school team in Grade 7 and played in Shanghai&rsquo;s interschool league. Between schoolwork, golf and flute, I haven&rsquo;t had much time on the pitch lately. I&rsquo;d like to get back to it and try a sport I&rsquo;ve never played before.</p>
+          </div>
+        </div>
+      </section>
+
       <section class="section gallery" id="gallery" aria-labelledby="gallery-title">
         <div class="section-head">
           <p class="kicker">Gallery</p>
           <h2 id="gallery-title">Photos &amp; video</h2>
         </div>
-        <div class="filters" role="group" aria-label="Filter gallery">
-          <button type="button" class="filter" data-filter="all" aria-pressed="true">All</button>
-          <button type="button" class="filter" data-filter="golf" aria-pressed="false">Golf</button>
-          <button type="button" class="filter" data-filter="music" aria-pressed="false">Music</button>
-          <button type="button" class="filter" data-filter="stage" aria-pressed="false">Stage</button>
-          <button type="button" class="filter" data-filter="football" aria-pressed="false">Football</button>
-          <button type="button" class="filter" data-filter="everyday" aria-pressed="false">School life</button>
-          <button type="button" class="filter" data-filter="outdoors" aria-pressed="false">Outdoors</button>
-        </div>
-        <p class="visually-hidden" aria-live="polite" id="gallery-status">
-        </p>
-        <ul class="gallery-grid" role="list">
-          <li class="gallery-item gallery-item--feature" data-group="golf">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/golf-iron-shot-1600.webp" data-full-jpg="assets/media/golf-iron-shot-1600.jpg" data-width="1600" data-height="1065" data-alt="Cindy swings an iron off the fairway, lifting a spray of turf" data-caption="An iron shot at the SSSA School Golf Invitational Cup." data-group-label="Golf">
-              <picture>
-                <source type="image/webp" srcset="assets/media/golf-iron-shot-480.webp 480w, assets/media/golf-iron-shot-900.webp 900w, assets/media/golf-iron-shot-1600.webp 1600w" sizes="(max-width: 700px) 92vw, (max-width: 1080px) 62vw, 48vw">
-                <img src="assets/media/golf-iron-shot-480.jpg" srcset="assets/media/golf-iron-shot-480.jpg 480w, assets/media/golf-iron-shot-900.jpg 900w, assets/media/golf-iron-shot-1600.jpg 1600w" sizes="(max-width: 700px) 92vw, (max-width: 1080px) 62vw, 48vw" width="480" height="319" alt="" style="object-position: 50% 29%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Golf</span><span class="visually-hidden">. An iron shot at the SSSA School Golf Invitational Cup. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="stage">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/theatre-full-cast-1600.webp" data-full-jpg="assets/media/theatre-full-cast-1600.jpg" data-width="1600" data-height="1067" data-alt="The cast sings across the stage beneath two tall white set pieces" data-caption="A chorus number with the whole cast." data-group-label="Stage">
-              <picture>
-                <source type="image/webp" srcset="assets/media/theatre-full-cast-480.webp 480w, assets/media/theatre-full-cast-900.webp 900w, assets/media/theatre-full-cast-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/theatre-full-cast-480.jpg" srcset="assets/media/theatre-full-cast-480.jpg 480w, assets/media/theatre-full-cast-900.jpg 900w, assets/media/theatre-full-cast-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 50% 60%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Stage</span><span class="visually-hidden">. A chorus number with the whole cast. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="music">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/music-orchestra-conductor-1600.webp" data-full-jpg="assets/media/music-orchestra-conductor-1600.jpg" data-width="1562" data-height="1036" data-alt="String and wind players watch the conductor from rows of music stands" data-caption="Watching the conductor from the orchestra." data-group-label="Music">
-              <picture>
-                <source type="image/webp" srcset="assets/media/music-orchestra-conductor-480.webp 480w, assets/media/music-orchestra-conductor-900.webp 900w, assets/media/music-orchestra-conductor-1600.webp 1562w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/music-orchestra-conductor-480.jpg" srcset="assets/media/music-orchestra-conductor-480.jpg 480w, assets/media/music-orchestra-conductor-900.jpg 900w, assets/media/music-orchestra-conductor-1600.jpg 1562w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="318" alt="" style="object-position: 50% 45%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Music</span><span class="visually-hidden">. Watching the conductor from the orchestra. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="golf">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/golf-on-the-fairway-1600.webp" data-full-jpg="assets/media/golf-on-the-fairway-1600.jpg" data-width="1600" data-height="1200" data-alt="Two golfers in white shirts and caps take a selfie on the fairway" data-caption="A photo together on the fairway." data-group-label="Golf">
-              <picture>
-                <source type="image/webp" srcset="assets/media/golf-on-the-fairway-480.webp 480w, assets/media/golf-on-the-fairway-900.webp 900w, assets/media/golf-on-the-fairway-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/golf-on-the-fairway-480.jpg" srcset="assets/media/golf-on-the-fairway-480.jpg 480w, assets/media/golf-on-the-fairway-900.jpg 900w, assets/media/golf-on-the-fairway-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="360" alt="" style="object-position: 50% 40%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Golf</span><span class="visually-hidden">. A photo together on the fairway. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item gallery-item--portrait" data-group="music">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/flute-orchestra-rehearsal-1600.webp" data-full-jpg="assets/media/flute-orchestra-rehearsal-1600.jpg" data-width="1600" data-height="2400" data-alt="Cindy playing a silver flute in a red concert dress, with other musicians in the foreground" data-caption="In the flute section." data-group-label="Music">
-              <picture>
-                <source type="image/webp" srcset="assets/media/flute-orchestra-rehearsal-480.webp 480w, assets/media/flute-orchestra-rehearsal-900.webp 900w, assets/media/flute-orchestra-rehearsal-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/flute-orchestra-rehearsal-480.jpg" srcset="assets/media/flute-orchestra-rehearsal-480.jpg 480w, assets/media/flute-orchestra-rehearsal-900.jpg 900w, assets/media/flute-orchestra-rehearsal-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="720" alt="" style="object-position: 50% 14%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Music</span><span class="visually-hidden">. In the flute section. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="outdoors">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/outdoors-ridge-group-1600.webp" data-full-jpg="assets/media/outdoors-ridge-group-1600.jpg" data-width="1600" data-height="1200" data-alt="A hiking group with backpacks pauses on a rocky ridge above the trees" data-caption="A break together on the ridge." data-group-label="Outdoors">
-              <picture>
-                <source type="image/webp" srcset="assets/media/outdoors-ridge-group-480.webp 480w, assets/media/outdoors-ridge-group-900.webp 900w, assets/media/outdoors-ridge-group-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/outdoors-ridge-group-480.jpg" srcset="assets/media/outdoors-ridge-group-480.jpg 480w, assets/media/outdoors-ridge-group-900.jpg 900w, assets/media/outdoors-ridge-group-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="360" alt="" style="object-position: 50% 48%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Outdoors</span><span class="visually-hidden">. A break together on the ridge. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="music">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/flute-festival-duet-1600.webp" data-full-jpg="assets/media/flute-festival-duet-1600.jpg" data-width="1600" data-height="1064" data-alt="A flutist and violinist play side by side at music stands on an outdoor stage" data-caption="Flute and violin at the Dragonfruit Festival." data-group-label="Music">
-              <picture>
-                <source type="image/webp" srcset="assets/media/flute-festival-duet-480.webp 480w, assets/media/flute-festival-duet-900.webp 900w, assets/media/flute-festival-duet-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/flute-festival-duet-480.jpg" srcset="assets/media/flute-festival-duet-480.jpg 480w, assets/media/flute-festival-duet-900.jpg 900w, assets/media/flute-festival-duet-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="319" alt="" style="object-position: 50% 40%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Music</span><span class="visually-hidden">. Flute and violin at the Dragonfruit Festival. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item gallery-item--portrait" data-group="stage">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/jingju-full-costume-1600.webp" data-full-jpg="assets/media/jingju-full-costume-1600.jpg" data-width="1600" data-height="2614" data-alt="Cindy in an orange embroidered Jing Ju costume and an ornate headdress" data-caption="In costume before going onstage." data-group-label="Stage">
-              <picture>
-                <source type="image/webp" srcset="assets/media/jingju-full-costume-480.webp 480w, assets/media/jingju-full-costume-900.webp 900w, assets/media/jingju-full-costume-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/jingju-full-costume-480.jpg" srcset="assets/media/jingju-full-costume-480.jpg 480w, assets/media/jingju-full-costume-900.jpg 900w, assets/media/jingju-full-costume-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="784" alt="" style="object-position: 50% 21%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Stage</span><span class="visually-hidden">. In costume before going onstage. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="golf">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/golf-follow-through-1600.webp" data-full-jpg="assets/media/golf-follow-through-1600.jpg" data-width="1600" data-height="1067" data-alt="Cindy in a visor watches her shot with the club raised overhead" data-caption="Watching the ball after the swing." data-group-label="Golf">
-              <picture>
-                <source type="image/webp" srcset="assets/media/golf-follow-through-480.webp 480w, assets/media/golf-follow-through-900.webp 900w, assets/media/golf-follow-through-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/golf-follow-through-480.jpg" srcset="assets/media/golf-follow-through-480.jpg 480w, assets/media/golf-follow-through-900.jpg 900w, assets/media/golf-follow-through-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 50% 28%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Golf</span><span class="visually-hidden">. Watching the ball after the swing. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="everyday">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/school-friends-1600.webp" data-full-jpg="assets/media/school-friends-1600.jpg" data-width="1600" data-height="1069" data-alt="Four friends in school uniforms stand shoulder to shoulder with their arms around each other" data-caption="With friends at school." data-group-label="School life">
-              <picture>
-                <source type="image/webp" srcset="assets/media/school-friends-480.webp 480w, assets/media/school-friends-900.webp 900w, assets/media/school-friends-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/school-friends-480.jpg" srcset="assets/media/school-friends-480.jpg 480w, assets/media/school-friends-900.jpg 900w, assets/media/school-friends-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="321" alt="" style="object-position: 50% 45%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">School life</span><span class="visually-hidden">. With friends at school. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="football">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/football-tournament-team-1600.webp" data-full-jpg="assets/media/football-tournament-team-1600.jpg" data-width="1600" data-height="1066" data-alt="The football squad and coach stand in front of a green tournament backdrop" data-caption="The tournament team." data-group-label="Football">
-              <picture>
-                <source type="image/webp" srcset="assets/media/football-tournament-team-480.webp 480w, assets/media/football-tournament-team-900.webp 900w, assets/media/football-tournament-team-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/football-tournament-team-480.jpg" srcset="assets/media/football-tournament-team-480.jpg 480w, assets/media/football-tournament-team-900.jpg 900w, assets/media/football-tournament-team-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 50% 55%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Football</span><span class="visually-hidden">. The tournament team. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="music">
-            <button class="gallery-button is-video" type="button" data-video="assets/media/flute-concert-section.mp4" data-poster="assets/media/flute-concert-section-poster.jpg" data-caption="The flute ensemble in concert." data-group-label="Music">
-              <picture>
-                <source type="image/webp" srcset="assets/media/flute-concert-section-poster.webp">
-                <img src="assets/media/flute-concert-section-poster.jpg" width="1280" height="720" alt="" loading="lazy" decoding="async">
-              </picture>
-              <span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
-              <span class="gallery-label"><span class="gallery-tag">Music · Video</span><span class="visually-hidden">. The flute ensemble in concert. Play video.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item gallery-item--portrait" data-group="stage">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/jingju-backstage-1600.webp" data-full-jpg="assets/media/jingju-backstage-1600.jpg" data-width="1600" data-height="2133" data-alt="Cindy smiles while someone finishes her Jing Ju makeup and head-wrap" data-caption="Getting ready backstage." data-group-label="Stage">
-              <picture>
-                <source type="image/webp" srcset="assets/media/jingju-backstage-480.webp 480w, assets/media/jingju-backstage-900.webp 900w, assets/media/jingju-backstage-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/jingju-backstage-480.jpg" srcset="assets/media/jingju-backstage-480.jpg 480w, assets/media/jingju-backstage-900.jpg 900w, assets/media/jingju-backstage-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="640" alt="" style="object-position: 45% 34%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Stage</span><span class="visually-hidden">. Getting ready backstage. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="music">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/music-festival-stage-1600.webp" data-full-jpg="assets/media/music-festival-stage-1600.jpg" data-width="1600" data-height="1066" data-alt="An outdoor band performs below a brightly lit Dragonfruit Festival screen" data-caption="The full band at the Dragonfruit Festival." data-group-label="Music">
-              <picture>
-                <source type="image/webp" srcset="assets/media/music-festival-stage-480.webp 480w, assets/media/music-festival-stage-900.webp 900w, assets/media/music-festival-stage-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/music-festival-stage-480.jpg" srcset="assets/media/music-festival-stage-480.jpg 480w, assets/media/music-festival-stage-900.jpg 900w, assets/media/music-festival-stage-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 50% 54%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Music</span><span class="visually-hidden">. The full band at the Dragonfruit Festival. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item gallery-item--portrait" data-group="golf">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/golf-approach-1600.webp" data-full-jpg="assets/media/golf-approach-1600.jpg" data-width="1366" data-height="2048" data-alt="A golf ball hangs in the air above Cindy as she finishes an iron shot" data-caption="Following an approach shot." data-group-label="Golf">
-              <picture>
-                <source type="image/webp" srcset="assets/media/golf-approach-480.webp 480w, assets/media/golf-approach-900.webp 900w, assets/media/golf-approach-1600.webp 1366w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/golf-approach-480.jpg" srcset="assets/media/golf-approach-480.jpg 480w, assets/media/golf-approach-900.jpg 900w, assets/media/golf-approach-1600.jpg 1366w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="720" alt="" style="object-position: 50% 38%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Golf</span><span class="visually-hidden">. Following an approach shot. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="outdoors">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/everyday-hiking-1600.webp" data-full-jpg="assets/media/everyday-hiking-1600.jpg" data-width="1600" data-height="1083" data-alt="Two hikers walk along a rocky trail beneath a canopy of green leaves" data-caption="On the trail with friends." data-group-label="Outdoors">
-              <picture>
-                <source type="image/webp" srcset="assets/media/everyday-hiking-480.webp 480w, assets/media/everyday-hiking-900.webp 900w, assets/media/everyday-hiking-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/everyday-hiking-480.jpg" srcset="assets/media/everyday-hiking-480.jpg 480w, assets/media/everyday-hiking-900.jpg 900w, assets/media/everyday-hiking-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="325" alt="" style="object-position: 51% 40%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Outdoors</span><span class="visually-hidden">. On the trail with friends. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="stage">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/theatre-three-performers-1600.webp" data-full-jpg="assets/media/theatre-three-performers-1600.jpg" data-width="1600" data-height="1066" data-alt="Three actors move together across a purple-lit stage, one with a leg lifted" data-caption="Three of us in a musical number." data-group-label="Stage">
-              <picture>
-                <source type="image/webp" srcset="assets/media/theatre-three-performers-480.webp 480w, assets/media/theatre-three-performers-900.webp 900w, assets/media/theatre-three-performers-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/theatre-three-performers-480.jpg" srcset="assets/media/theatre-three-performers-480.jpg 480w, assets/media/theatre-three-performers-900.jpg 900w, assets/media/theatre-three-performers-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 50% 60%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Stage</span><span class="visually-hidden">. Three of us in a musical number. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="everyday">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/school-debate-1600.webp" data-full-jpg="assets/media/school-debate-1600.jpg" data-width="1600" data-height="1199" data-alt="Cindy onstage in front of a red English Speech and Debate Pentathlon backdrop" data-caption="At the English Speech and Debate Pentathlon." data-group-label="School life">
-              <picture>
-                <source type="image/webp" srcset="assets/media/school-debate-480.webp 480w, assets/media/school-debate-900.webp 900w, assets/media/school-debate-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/school-debate-480.jpg" srcset="assets/media/school-debate-480.jpg 480w, assets/media/school-debate-900.jpg 900w, assets/media/school-debate-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="360" alt="" style="object-position: 52% 50%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">School life</span><span class="visually-hidden">. At the English Speech and Debate Pentathlon. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="football">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/football-at-goal-1600.webp" data-full-jpg="assets/media/football-at-goal-1600.jpg" data-width="1600" data-height="1067" data-alt="A player in black and orange faces a defender in red beside the goal" data-caption="Looking for a way past the defender." data-group-label="Football">
-              <picture>
-                <source type="image/webp" srcset="assets/media/football-at-goal-480.webp 480w, assets/media/football-at-goal-900.webp 900w, assets/media/football-at-goal-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/football-at-goal-480.jpg" srcset="assets/media/football-at-goal-480.jpg 480w, assets/media/football-at-goal-900.jpg 900w, assets/media/football-at-goal-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 50% 46%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Football</span><span class="visually-hidden">. Looking for a way past the defender. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="golf">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/golf-junior-podium-1600.webp" data-full-jpg="assets/media/golf-junior-podium-1600.jpg" data-width="1600" data-height="1280" data-alt="Junior golfers hold trophies and certificates on a three-place podium" data-caption="The Maiyue Junior Golf Tour podium." data-group-label="Golf">
-              <picture>
-                <source type="image/webp" srcset="assets/media/golf-junior-podium-480.webp 480w, assets/media/golf-junior-podium-900.webp 900w, assets/media/golf-junior-podium-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/golf-junior-podium-480.jpg" srcset="assets/media/golf-junior-podium-480.jpg 480w, assets/media/golf-junior-podium-900.jpg 900w, assets/media/golf-junior-podium-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="384" alt="" style="object-position: 50% 52%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Golf</span><span class="visually-hidden">. The Maiyue Junior Golf Tour podium. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item gallery-item--portrait" data-group="music">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/music-student-flutes-1600.webp" data-full-jpg="assets/media/music-student-flutes-1600.jpg" data-width="1600" data-height="2133" data-alt="Student flutists and singers stand in a line beside a large red stage sign" data-caption="Flutes and voices onstage together." data-group-label="Music">
-              <picture>
-                <source type="image/webp" srcset="assets/media/music-student-flutes-480.webp 480w, assets/media/music-student-flutes-900.webp 900w, assets/media/music-student-flutes-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/music-student-flutes-480.jpg" srcset="assets/media/music-student-flutes-480.jpg 480w, assets/media/music-student-flutes-900.jpg 900w, assets/media/music-student-flutes-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="640" alt="" style="object-position: 50% 70%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Music</span><span class="visually-hidden">. Flutes and voices onstage together. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="stage">
-            <button class="gallery-button is-video" type="button" data-video="assets/media/jingju-practice.mp4" data-poster="assets/media/jingju-practice-poster.jpg" data-caption="Practising fan and water-sleeve movements at home." data-group-label="Stage">
-              <picture>
-                <source type="image/webp" srcset="assets/media/jingju-practice-poster.webp">
-                <img src="assets/media/jingju-practice-poster.jpg" width="1280" height="720" alt="" loading="lazy" decoding="async">
-              </picture>
-              <span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
-              <span class="gallery-label"><span class="gallery-tag">Stage · Video</span><span class="visually-hidden">. Practising fan and water-sleeve movements at home. Play video.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="outdoors">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/outdoors-parasailing-1600.webp" data-full-jpg="assets/media/outdoors-parasailing-1600.jpg" data-width="1600" data-height="1067" data-alt="Two people in life jackets hang in a parasailing harness above a boat wake" data-caption="Parasailing over the water." data-group-label="Outdoors">
-              <picture>
-                <source type="image/webp" srcset="assets/media/outdoors-parasailing-480.webp 480w, assets/media/outdoors-parasailing-900.webp 900w, assets/media/outdoors-parasailing-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/outdoors-parasailing-480.jpg" srcset="assets/media/outdoors-parasailing-480.jpg 480w, assets/media/outdoors-parasailing-900.jpg 900w, assets/media/outdoors-parasailing-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 50% 39%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Outdoors</span><span class="visually-hidden">. Parasailing over the water. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="music">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/music-festival-group-1600.webp" data-full-jpg="assets/media/music-festival-group-1600.jpg" data-width="1600" data-height="1200" data-alt="A group of student musicians holds instruments and folders in front of a Super Video Game festival sign" data-caption="With the musicians at the Super Video Game festival." data-group-label="Music">
-              <picture>
-                <source type="image/webp" srcset="assets/media/music-festival-group-480.webp 480w, assets/media/music-festival-group-900.webp 900w, assets/media/music-festival-group-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/music-festival-group-480.jpg" srcset="assets/media/music-festival-group-480.jpg 480w, assets/media/music-festival-group-900.jpg 900w, assets/media/music-festival-group-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="360" alt="" style="object-position: 50% 53%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Music</span><span class="visually-hidden">. With the musicians at the Super Video Game festival. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="football">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/football-through-defence-1600.webp" data-full-jpg="assets/media/football-through-defence-1600.jpg" data-width="1600" data-height="1067" data-alt="A footballer in black and orange dribbles between two defenders in white" data-caption="Taking the ball through the defence." data-group-label="Football">
-              <picture>
-                <source type="image/webp" srcset="assets/media/football-through-defence-480.webp 480w, assets/media/football-through-defence-900.webp 900w, assets/media/football-through-defence-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/football-through-defence-480.jpg" srcset="assets/media/football-through-defence-480.jpg 480w, assets/media/football-through-defence-900.jpg 900w, assets/media/football-through-defence-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 43% 46%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Football</span><span class="visually-hidden">. Taking the ball through the defence. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item gallery-item--portrait" data-group="stage">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/jingju-fan-practice-1600.webp" data-full-jpg="assets/media/jingju-fan-practice-1600.jpg" data-width="1600" data-height="2133" data-alt="A young Cindy extends a white water sleeve and holds an open fan in the other hand" data-caption="Practising fan and water-sleeve movements at home." data-group-label="Stage">
-              <picture>
-                <source type="image/webp" srcset="assets/media/jingju-fan-practice-480.webp 480w, assets/media/jingju-fan-practice-900.webp 900w, assets/media/jingju-fan-practice-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/jingju-fan-practice-480.jpg" srcset="assets/media/jingju-fan-practice-480.jpg 480w, assets/media/jingju-fan-practice-900.jpg 900w, assets/media/jingju-fan-practice-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="640" alt="" style="object-position: 50% 36%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Stage</span><span class="visually-hidden">. Practising fan and water-sleeve movements at home. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="football">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/football-goal-team-1600.webp" data-full-jpg="assets/media/football-goal-team-1600.jpg" data-width="1600" data-height="1067" data-alt="Football teammates in dark kits pose with their coach in front of the goal" data-caption="A team photo by the goal." data-group-label="Football">
-              <picture>
-                <source type="image/webp" srcset="assets/media/football-goal-team-480.webp 480w, assets/media/football-goal-team-900.webp 900w, assets/media/football-goal-team-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/football-goal-team-480.jpg" srcset="assets/media/football-goal-team-480.jpg 480w, assets/media/football-goal-team-900.jpg 900w, assets/media/football-goal-team-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 50% 54%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Football</span><span class="visually-hidden">. A team photo by the goal. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="everyday">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/school-auditorium-1600.webp" data-full-jpg="assets/media/school-auditorium-1600.jpg" data-width="1600" data-height="1200" data-alt="A group takes a selfie from their seats in an auditorium" data-caption="From our row in the auditorium." data-group-label="School life">
-              <picture>
-                <source type="image/webp" srcset="assets/media/school-auditorium-480.webp 480w, assets/media/school-auditorium-900.webp 900w, assets/media/school-auditorium-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/school-auditorium-480.jpg" srcset="assets/media/school-auditorium-480.jpg 480w, assets/media/school-auditorium-900.jpg 900w, assets/media/school-auditorium-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="360" alt="" style="object-position: 42% 43%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">School life</span><span class="visually-hidden">. From our row in the auditorium. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="football">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/football-midfield-1600.webp" data-full-jpg="assets/media/football-midfield-1600.jpg" data-width="1600" data-height="1067" data-alt="A player carries the ball across midfield between players in orange shirts" data-caption="Moving the ball through midfield." data-group-label="Football">
-              <picture>
-                <source type="image/webp" srcset="assets/media/football-midfield-480.webp 480w, assets/media/football-midfield-900.webp 900w, assets/media/football-midfield-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/football-midfield-480.jpg" srcset="assets/media/football-midfield-480.jpg 480w, assets/media/football-midfield-900.jpg 900w, assets/media/football-midfield-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 44% 49%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Football</span><span class="visually-hidden">. Moving the ball through midfield. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item gallery-item--panorama" data-group="golf">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/golf-school-award-1600.webp" data-full-jpg="assets/media/golf-school-award-1600.jpg" data-width="1600" data-height="744" data-alt="Cindy stands onstage beneath the Girls Golfer of the Year announcement" data-caption="Onstage for the school golf awards." data-group-label="Golf">
-              <picture>
-                <source type="image/webp" srcset="assets/media/golf-school-award-480.webp 480w, assets/media/golf-school-award-900.webp 900w, assets/media/golf-school-award-1600.webp 1600w" sizes="(max-width: 700px) 92vw, (max-width: 1080px) 62vw, 48vw">
-                <img src="assets/media/golf-school-award-480.jpg" srcset="assets/media/golf-school-award-480.jpg 480w, assets/media/golf-school-award-900.jpg 900w, assets/media/golf-school-award-1600.jpg 1600w" sizes="(max-width: 700px) 92vw, (max-width: 1080px) 62vw, 48vw" width="480" height="223" alt="" style="object-position: 50% 52%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Golf</span><span class="visually-hidden">. Onstage for the school golf awards. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="golf">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/golf-selection-team-1600.webp" data-full-jpg="assets/media/golf-selection-team-1600.jpg" data-width="1600" data-height="1067" data-alt="Golfers hold a team banner beneath the Chinese School Golf Competition sign" data-caption="With the team at the school golf selection tournament." data-group-label="Golf">
-              <picture>
-                <source type="image/webp" srcset="assets/media/golf-selection-team-480.webp 480w, assets/media/golf-selection-team-900.webp 900w, assets/media/golf-selection-team-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/golf-selection-team-480.jpg" srcset="assets/media/golf-selection-team-480.jpg 480w, assets/media/golf-selection-team-900.jpg 900w, assets/media/golf-selection-team-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 50% 52%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Golf</span><span class="visually-hidden">. With the team at the school golf selection tournament. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="music">
-            <button class="gallery-button is-video" type="button" data-video="assets/media/music-dragonfruit-live.mp4" data-poster="assets/media/music-dragonfruit-live-poster.jpg" data-caption="An excerpt from the band’s Dragonfruit Festival set." data-group-label="Music">
-              <picture>
-                <source type="image/webp" srcset="assets/media/music-dragonfruit-live-poster.webp">
-                <img src="assets/media/music-dragonfruit-live-poster.jpg" width="1280" height="720" alt="" loading="lazy" decoding="async">
-              </picture>
-              <span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
-              <span class="gallery-label"><span class="gallery-tag">Music · Video</span><span class="visually-hidden">. An excerpt from the band’s Dragonfruit Festival set. Play video.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="everyday">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/school-group-portrait-1600.webp" data-full-jpg="assets/media/school-group-portrait-1600.jpg" data-width="1600" data-height="1067" data-alt="Students in white polo shirts and staff pose in two rows against a white backdrop" data-caption="A school group portrait." data-group-label="School life">
-              <picture>
-                <source type="image/webp" srcset="assets/media/school-group-portrait-480.webp 480w, assets/media/school-group-portrait-900.webp 900w, assets/media/school-group-portrait-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/school-group-portrait-480.jpg" srcset="assets/media/school-group-portrait-480.jpg 480w, assets/media/school-group-portrait-900.jpg 900w, assets/media/school-group-portrait-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 50% 51%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">School life</span><span class="visually-hidden">. A school group portrait. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="golf">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/golf-invitational-awards-1600.webp" data-full-jpg="assets/media/golf-invitational-awards-1600.jpg" data-width="1600" data-height="1066" data-alt="Two people pose with a trophy in front of the SSSA School Golf Invitational Cup backdrop" data-caption="At the School Golf Invitational Cup awards." data-group-label="Golf">
-              <picture>
-                <source type="image/webp" srcset="assets/media/golf-invitational-awards-480.webp 480w, assets/media/golf-invitational-awards-900.webp 900w, assets/media/golf-invitational-awards-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/golf-invitational-awards-480.jpg" srcset="assets/media/golf-invitational-awards-480.jpg 480w, assets/media/golf-invitational-awards-900.jpg 900w, assets/media/golf-invitational-awards-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="319" alt="" style="object-position: 50% 52%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Golf</span><span class="visually-hidden">. At the School Golf Invitational Cup awards. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="football">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/football-contested-ball-1600.webp" data-full-jpg="assets/media/football-contested-ball-1600.jpg" data-width="1600" data-height="1067" data-alt="Two footballers stretch for the same ball near the penalty area" data-caption="A challenge for the ball." data-group-label="Football">
-              <picture>
-                <source type="image/webp" srcset="assets/media/football-contested-ball-480.webp 480w, assets/media/football-contested-ball-900.webp 900w, assets/media/football-contested-ball-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/football-contested-ball-480.jpg" srcset="assets/media/football-contested-ball-480.jpg 480w, assets/media/football-contested-ball-900.jpg 900w, assets/media/football-contested-ball-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 48% 48%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Football</span><span class="visually-hidden">. A challenge for the ball. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="everyday">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/school-awards-group-1600.webp" data-full-jpg="assets/media/school-awards-group-1600.jpg" data-width="1600" data-height="1066" data-alt="Students holding awards stand onstage in front of a red lion emblem" data-caption="Onstage together at the school awards." data-group-label="School life">
-              <picture>
-                <source type="image/webp" srcset="assets/media/school-awards-group-480.webp 480w, assets/media/school-awards-group-900.webp 900w, assets/media/school-awards-group-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/school-awards-group-480.jpg" srcset="assets/media/school-awards-group-480.jpg 480w, assets/media/school-awards-group-900.jpg 900w, assets/media/school-awards-group-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 50% 53%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">School life</span><span class="visually-hidden">. Onstage together at the school awards. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="golf">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/golf-selection-portrait-1600.webp" data-full-jpg="assets/media/golf-selection-portrait-1600.jpg" data-width="1600" data-height="1067" data-alt="Cindy stands beneath the sign for the International Junior Golf Selection Tournament" data-caption="At the junior golf selection tournament." data-group-label="Golf">
-              <picture>
-                <source type="image/webp" srcset="assets/media/golf-selection-portrait-480.webp 480w, assets/media/golf-selection-portrait-900.webp 900w, assets/media/golf-selection-portrait-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/golf-selection-portrait-480.jpg" srcset="assets/media/golf-selection-portrait-480.jpg 480w, assets/media/golf-selection-portrait-900.jpg 900w, assets/media/golf-selection-portrait-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 50% 50%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Golf</span><span class="visually-hidden">. At the junior golf selection tournament. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item gallery-item--portrait" data-group="outdoors">
-            <button class="gallery-button is-video" type="button" data-video="assets/media/outdoors-river-jump.mp4" data-poster="assets/media/outdoors-river-jump-poster.jpg" data-caption="A jump into the river on a woodland hike." data-group-label="Outdoors">
-              <picture>
-                <source type="image/webp" srcset="assets/media/outdoors-river-jump-poster.webp">
-                <img src="assets/media/outdoors-river-jump-poster.jpg" width="406" height="720" alt="" loading="lazy" decoding="async">
-              </picture>
-              <span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
-              <span class="gallery-label"><span class="gallery-tag">Outdoors · Video</span><span class="visually-hidden">. A jump into the river on a woodland hike. Play video.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item" data-group="football">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/football-medal-team-1600.webp" data-full-jpg="assets/media/football-medal-team-1600.jpg" data-width="1600" data-height="1067" data-alt="Football teammates wearing medals pose on the pitch with their goalkeeper in yellow" data-caption="Medals and a team photo on the pitch." data-group-label="Football">
-              <picture>
-                <source type="image/webp" srcset="assets/media/football-medal-team-480.webp 480w, assets/media/football-medal-team-900.webp 900w, assets/media/football-medal-team-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
-                <img src="assets/media/football-medal-team-480.jpg" srcset="assets/media/football-medal-team-480.jpg 480w, assets/media/football-medal-team-900.jpg 900w, assets/media/football-medal-team-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 50% 53%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Football</span><span class="visually-hidden">. Medals and a team photo on the pitch. Open larger view.</span></span>
-            </button>
-          </li>
-          <li class="gallery-item gallery-item--panorama" data-group="golf">
-            <button class="gallery-button" type="button" data-full-webp="assets/media/golf-awards-auditorium-1600.webp" data-full-jpg="assets/media/golf-awards-auditorium-1600.jpg" data-width="1600" data-height="744" data-alt="A wider view from the audience of the Golfer of the Year presentation, with the lectern and trophies visible" data-caption="The golf awards from the audience." data-group-label="Golf">
-              <picture>
-                <source type="image/webp" srcset="assets/media/golf-awards-auditorium-480.webp 480w, assets/media/golf-awards-auditorium-900.webp 900w, assets/media/golf-awards-auditorium-1600.webp 1600w" sizes="(max-width: 700px) 92vw, (max-width: 1080px) 62vw, 48vw">
-                <img src="assets/media/golf-awards-auditorium-480.jpg" srcset="assets/media/golf-awards-auditorium-480.jpg 480w, assets/media/golf-awards-auditorium-900.jpg 900w, assets/media/golf-awards-auditorium-1600.jpg 1600w" sizes="(max-width: 700px) 92vw, (max-width: 1080px) 62vw, 48vw" width="480" height="223" alt="" style="object-position: 50% 48%" loading="lazy" decoding="async">
-              </picture>
-              <span class="gallery-label"><span class="gallery-tag">Golf</span><span class="visually-hidden">. The golf awards from the audience. Open larger view.</span></span>
-            </button>
-          </li>
-        </ul>
+        <fieldset class="gallery-collection">
+          <legend class="visually-hidden">Choose a gallery category</legend>
+          <input class="gallery-choice visually-hidden" type="radio" name="collection" id="filter-all" value="all" aria-controls="gallery-grid" checked>
+          <label class="filter" for="filter-all">All</label>
+          <input class="gallery-choice visually-hidden" type="radio" name="collection" id="filter-golf" value="golf" aria-controls="gallery-grid">
+          <label class="filter" for="filter-golf">Golf</label>
+          <input class="gallery-choice visually-hidden" type="radio" name="collection" id="filter-music" value="music" aria-controls="gallery-grid">
+          <label class="filter" for="filter-music">Music</label>
+          <input class="gallery-choice visually-hidden" type="radio" name="collection" id="filter-stage" value="stage" aria-controls="gallery-grid">
+          <label class="filter" for="filter-stage">Theatre</label>
+          <input class="gallery-choice visually-hidden" type="radio" name="collection" id="filter-football" value="football" aria-controls="gallery-grid">
+          <label class="filter" for="filter-football">Football</label>
+          <input class="gallery-choice visually-hidden" type="radio" name="collection" id="filter-everyday" value="everyday" aria-controls="gallery-grid">
+          <label class="filter" for="filter-everyday">School life</label>
+          <input class="gallery-choice visually-hidden" type="radio" name="collection" id="filter-outdoors" value="outdoors" aria-controls="gallery-grid">
+          <label class="filter" for="filter-outdoors">Outdoors</label>
+          <input class="gallery-choice visually-hidden" type="radio" name="collection" id="filter-films" value="films" aria-controls="gallery-grid">
+          <label class="filter" for="filter-films">Films</label>
+          <ul class="gallery-grid" id="gallery-grid" role="list">
+            <li class="gallery-item gallery-item--feature" data-group="golf">
+              <a class="gallery-button" href="assets/media/golf-iron-shot-1600.jpg" data-full-webp="assets/media/golf-iron-shot-1600.webp" data-full-jpg="assets/media/golf-iron-shot-1600.jpg" data-width="1600" data-height="1065" data-alt="Cindy swings an iron off the fairway, lifting a spray of turf" data-caption="An iron shot at the SSSA School Golf Invitational Cup." data-group-label="Golf">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/golf-iron-shot-480.webp 480w, assets/media/golf-iron-shot-900.webp 900w, assets/media/golf-iron-shot-1600.webp 1600w" sizes="(max-width: 700px) 92vw, (max-width: 1080px) 62vw, 48vw">
+                  <img src="assets/media/golf-iron-shot-480.jpg" srcset="assets/media/golf-iron-shot-480.jpg 480w, assets/media/golf-iron-shot-900.jpg 900w, assets/media/golf-iron-shot-1600.jpg 1600w" sizes="(max-width: 700px) 92vw, (max-width: 1080px) 62vw, 48vw" width="480" height="319" alt="" style="object-position: 50% 29%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Golf</span><span class="visually-hidden">. An iron shot at the SSSA School Golf Invitational Cup. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item" data-group="stage">
+              <a class="gallery-button" href="assets/media/theatre-full-cast-1600.jpg" data-full-webp="assets/media/theatre-full-cast-1600.webp" data-full-jpg="assets/media/theatre-full-cast-1600.jpg" data-width="1600" data-height="1067" data-alt="The cast sings across the stage beneath two tall white set pieces" data-caption="A chorus number with the whole cast." data-group-label="Stage">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/theatre-full-cast-480.webp 480w, assets/media/theatre-full-cast-900.webp 900w, assets/media/theatre-full-cast-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/theatre-full-cast-480.jpg" srcset="assets/media/theatre-full-cast-480.jpg 480w, assets/media/theatre-full-cast-900.jpg 900w, assets/media/theatre-full-cast-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 50% 60%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Stage</span><span class="visually-hidden">. A chorus number with the whole cast. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item" data-group="music">
+              <a class="gallery-button" href="assets/media/music-orchestra-conductor-1600.jpg" data-full-webp="assets/media/music-orchestra-conductor-1600.webp" data-full-jpg="assets/media/music-orchestra-conductor-1600.jpg" data-width="1562" data-height="1036" data-alt="String and wind players watch the conductor from rows of music stands" data-caption="Watching the conductor from the orchestra." data-group-label="Music">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/music-orchestra-conductor-480.webp 480w, assets/media/music-orchestra-conductor-900.webp 900w, assets/media/music-orchestra-conductor-1600.webp 1562w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/music-orchestra-conductor-480.jpg" srcset="assets/media/music-orchestra-conductor-480.jpg 480w, assets/media/music-orchestra-conductor-900.jpg 900w, assets/media/music-orchestra-conductor-1600.jpg 1562w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="318" alt="" style="object-position: 50% 45%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Music</span><span class="visually-hidden">. Watching the conductor from the orchestra. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item" data-group="golf">
+              <a class="gallery-button" href="assets/media/golf-on-the-fairway-1600.jpg" data-full-webp="assets/media/golf-on-the-fairway-1600.webp" data-full-jpg="assets/media/golf-on-the-fairway-1600.jpg" data-width="1600" data-height="1200" data-alt="Two golfers in white shirts and caps take a selfie on the fairway" data-caption="A photo together on the fairway." data-group-label="Golf">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/golf-on-the-fairway-480.webp 480w, assets/media/golf-on-the-fairway-900.webp 900w, assets/media/golf-on-the-fairway-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/golf-on-the-fairway-480.jpg" srcset="assets/media/golf-on-the-fairway-480.jpg 480w, assets/media/golf-on-the-fairway-900.jpg 900w, assets/media/golf-on-the-fairway-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="360" alt="" style="object-position: 50% 40%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Golf</span><span class="visually-hidden">. A photo together on the fairway. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item gallery-item--portrait" data-group="music">
+              <a class="gallery-button" href="assets/media/flute-orchestra-rehearsal-1600.jpg" data-full-webp="assets/media/flute-orchestra-rehearsal-1600.webp" data-full-jpg="assets/media/flute-orchestra-rehearsal-1600.jpg" data-width="1600" data-height="2400" data-alt="Cindy playing a silver flute in a red concert dress, with other musicians in the foreground" data-caption="In the flute section." data-group-label="Music">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/flute-orchestra-rehearsal-480.webp 480w, assets/media/flute-orchestra-rehearsal-900.webp 900w, assets/media/flute-orchestra-rehearsal-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/flute-orchestra-rehearsal-480.jpg" srcset="assets/media/flute-orchestra-rehearsal-480.jpg 480w, assets/media/flute-orchestra-rehearsal-900.jpg 900w, assets/media/flute-orchestra-rehearsal-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="720" alt="" style="object-position: 50% 14%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Music</span><span class="visually-hidden">. In the flute section. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item" data-group="outdoors">
+              <a class="gallery-button" href="assets/media/outdoors-ridge-group-1600.jpg" data-full-webp="assets/media/outdoors-ridge-group-1600.webp" data-full-jpg="assets/media/outdoors-ridge-group-1600.jpg" data-width="1600" data-height="1200" data-alt="A hiking group with backpacks pauses on a rocky ridge above the trees" data-caption="A break together on the ridge." data-group-label="Outdoors">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/outdoors-ridge-group-480.webp 480w, assets/media/outdoors-ridge-group-900.webp 900w, assets/media/outdoors-ridge-group-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/outdoors-ridge-group-480.jpg" srcset="assets/media/outdoors-ridge-group-480.jpg 480w, assets/media/outdoors-ridge-group-900.jpg 900w, assets/media/outdoors-ridge-group-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="360" alt="" style="object-position: 50% 48%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Outdoors</span><span class="visually-hidden">. A break together on the ridge. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item" data-group="music">
+              <a class="gallery-button" href="assets/media/flute-festival-duet-1600.jpg" data-full-webp="assets/media/flute-festival-duet-1600.webp" data-full-jpg="assets/media/flute-festival-duet-1600.jpg" data-width="1600" data-height="1064" data-alt="A flutist and violinist play side by side at music stands on an outdoor stage" data-caption="Flute and violin at the Dragonfruit Festival." data-group-label="Music">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/flute-festival-duet-480.webp 480w, assets/media/flute-festival-duet-900.webp 900w, assets/media/flute-festival-duet-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/flute-festival-duet-480.jpg" srcset="assets/media/flute-festival-duet-480.jpg 480w, assets/media/flute-festival-duet-900.jpg 900w, assets/media/flute-festival-duet-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="319" alt="" style="object-position: 50% 40%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Music</span><span class="visually-hidden">. Flute and violin at the Dragonfruit Festival. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item gallery-item--portrait" data-group="stage">
+              <a class="gallery-button" href="assets/media/jingju-full-costume-1600.jpg" data-full-webp="assets/media/jingju-full-costume-1600.webp" data-full-jpg="assets/media/jingju-full-costume-1600.jpg" data-width="1600" data-height="2614" data-alt="Cindy in an orange embroidered Jing Ju costume and an ornate headdress" data-caption="In costume before going onstage." data-group-label="Stage">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/jingju-full-costume-480.webp 480w, assets/media/jingju-full-costume-900.webp 900w, assets/media/jingju-full-costume-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/jingju-full-costume-480.jpg" srcset="assets/media/jingju-full-costume-480.jpg 480w, assets/media/jingju-full-costume-900.jpg 900w, assets/media/jingju-full-costume-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="784" alt="" style="object-position: 50% 21%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Stage</span><span class="visually-hidden">. In costume before going onstage. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item" data-group="golf">
+              <a class="gallery-button" href="assets/media/golf-follow-through-1600.jpg" data-full-webp="assets/media/golf-follow-through-1600.webp" data-full-jpg="assets/media/golf-follow-through-1600.jpg" data-width="1600" data-height="1067" data-alt="Cindy in a visor watches her shot with the club raised overhead" data-caption="Watching the ball after the swing." data-group-label="Golf">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/golf-follow-through-480.webp 480w, assets/media/golf-follow-through-900.webp 900w, assets/media/golf-follow-through-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/golf-follow-through-480.jpg" srcset="assets/media/golf-follow-through-480.jpg 480w, assets/media/golf-follow-through-900.jpg 900w, assets/media/golf-follow-through-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 50% 28%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Golf</span><span class="visually-hidden">. Watching the ball after the swing. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item" data-group="everyday">
+              <a class="gallery-button" href="assets/media/school-friends-1600.jpg" data-full-webp="assets/media/school-friends-1600.webp" data-full-jpg="assets/media/school-friends-1600.jpg" data-width="1600" data-height="1069" data-alt="Four friends in school uniforms stand shoulder to shoulder with their arms around each other" data-caption="With friends at school." data-group-label="School life">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/school-friends-480.webp 480w, assets/media/school-friends-900.webp 900w, assets/media/school-friends-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/school-friends-480.jpg" srcset="assets/media/school-friends-480.jpg 480w, assets/media/school-friends-900.jpg 900w, assets/media/school-friends-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="321" alt="" style="object-position: 50% 45%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">School life</span><span class="visually-hidden">. With friends at school. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item" data-group="football">
+              <a class="gallery-button" href="assets/media/football-tournament-team-1600.jpg" data-full-webp="assets/media/football-tournament-team-1600.webp" data-full-jpg="assets/media/football-tournament-team-1600.jpg" data-width="1600" data-height="1066" data-alt="The football squad and coach stand in front of a green tournament backdrop" data-caption="The tournament team." data-group-label="Football">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/football-tournament-team-480.webp 480w, assets/media/football-tournament-team-900.webp 900w, assets/media/football-tournament-team-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/football-tournament-team-480.jpg" srcset="assets/media/football-tournament-team-480.jpg 480w, assets/media/football-tournament-team-900.jpg 900w, assets/media/football-tournament-team-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 50% 55%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Football</span><span class="visually-hidden">. The tournament team. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item gallery-item--film" data-group="music">
+              <figure class="gallery-film">
+                <div class="film-frame">
+                  <video controls playsinline preload="none" width="1280" height="720" poster="assets/media/flute-concert-section-poster.jpg" aria-label="Flute ensemble">
+                    <source src="assets/media/flute-concert-section.mp4" type="video/mp4">
+                  </video>
+                  <button class="film-start" type="button" aria-label="Play Flute ensemble" hidden></button>
+                </div>
+                <figcaption>
+                  <a class="film-link" href="assets/media/flute-concert-section.mp4" data-video="assets/media/flute-concert-section.mp4" data-poster="assets/media/flute-concert-section-poster.jpg" data-caption="The flute ensemble in concert." data-group-label="Music" aria-label="Open Flute ensemble in the larger player">Flute ensemble <span aria-hidden="true">&nearr;</span></a>
+                  <span class="film-duration">0:35</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="gallery-item gallery-item--portrait" data-group="stage">
+              <a class="gallery-button" href="assets/media/jingju-backstage-1600.jpg" data-full-webp="assets/media/jingju-backstage-1600.webp" data-full-jpg="assets/media/jingju-backstage-1600.jpg" data-width="1600" data-height="2133" data-alt="Cindy smiles while someone finishes her Jing Ju makeup and head-wrap" data-caption="Getting ready backstage." data-group-label="Stage">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/jingju-backstage-480.webp 480w, assets/media/jingju-backstage-900.webp 900w, assets/media/jingju-backstage-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/jingju-backstage-480.jpg" srcset="assets/media/jingju-backstage-480.jpg 480w, assets/media/jingju-backstage-900.jpg 900w, assets/media/jingju-backstage-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="640" alt="" style="object-position: 45% 34%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Stage</span><span class="visually-hidden">. Getting ready backstage. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item" data-group="music">
+              <a class="gallery-button" href="assets/media/music-festival-stage-1600.jpg" data-full-webp="assets/media/music-festival-stage-1600.webp" data-full-jpg="assets/media/music-festival-stage-1600.jpg" data-width="1600" data-height="1066" data-alt="An outdoor band performs below a brightly lit Dragonfruit Festival screen" data-caption="The full band at the Dragonfruit Festival." data-group-label="Music">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/music-festival-stage-480.webp 480w, assets/media/music-festival-stage-900.webp 900w, assets/media/music-festival-stage-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/music-festival-stage-480.jpg" srcset="assets/media/music-festival-stage-480.jpg 480w, assets/media/music-festival-stage-900.jpg 900w, assets/media/music-festival-stage-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 50% 54%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Music</span><span class="visually-hidden">. The full band at the Dragonfruit Festival. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item gallery-item--portrait" data-group="golf">
+              <a class="gallery-button" href="assets/media/golf-approach-1600.jpg" data-full-webp="assets/media/golf-approach-1600.webp" data-full-jpg="assets/media/golf-approach-1600.jpg" data-width="1366" data-height="2048" data-alt="A golf ball hangs in the air above Cindy as she finishes an iron shot" data-caption="Following an approach shot." data-group-label="Golf">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/golf-approach-480.webp 480w, assets/media/golf-approach-900.webp 900w, assets/media/golf-approach-1600.webp 1366w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/golf-approach-480.jpg" srcset="assets/media/golf-approach-480.jpg 480w, assets/media/golf-approach-900.jpg 900w, assets/media/golf-approach-1600.jpg 1366w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="720" alt="" style="object-position: 50% 38%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Golf</span><span class="visually-hidden">. Following an approach shot. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item" data-group="outdoors">
+              <a class="gallery-button" href="assets/media/everyday-hiking-1600.jpg" data-full-webp="assets/media/everyday-hiking-1600.webp" data-full-jpg="assets/media/everyday-hiking-1600.jpg" data-width="1600" data-height="1083" data-alt="Two hikers walk along a rocky trail beneath a canopy of green leaves" data-caption="On the trail with friends." data-group-label="Outdoors">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/everyday-hiking-480.webp 480w, assets/media/everyday-hiking-900.webp 900w, assets/media/everyday-hiking-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/everyday-hiking-480.jpg" srcset="assets/media/everyday-hiking-480.jpg 480w, assets/media/everyday-hiking-900.jpg 900w, assets/media/everyday-hiking-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="325" alt="" style="object-position: 51% 40%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Outdoors</span><span class="visually-hidden">. On the trail with friends. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item" data-group="stage">
+              <a class="gallery-button" href="assets/media/theatre-three-performers-1600.jpg" data-full-webp="assets/media/theatre-three-performers-1600.webp" data-full-jpg="assets/media/theatre-three-performers-1600.jpg" data-width="1600" data-height="1066" data-alt="Three actors move together across a purple-lit stage, one with a leg lifted" data-caption="Three of us in a musical number." data-group-label="Stage">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/theatre-three-performers-480.webp 480w, assets/media/theatre-three-performers-900.webp 900w, assets/media/theatre-three-performers-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/theatre-three-performers-480.jpg" srcset="assets/media/theatre-three-performers-480.jpg 480w, assets/media/theatre-three-performers-900.jpg 900w, assets/media/theatre-three-performers-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 50% 60%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Stage</span><span class="visually-hidden">. Three of us in a musical number. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item" data-group="everyday">
+              <a class="gallery-button" href="assets/media/school-debate-1600.jpg" data-full-webp="assets/media/school-debate-1600.webp" data-full-jpg="assets/media/school-debate-1600.jpg" data-width="1600" data-height="1199" data-alt="Cindy onstage in front of a red English Speech and Debate Pentathlon backdrop" data-caption="At the English Speech and Debate Pentathlon." data-group-label="School life">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/school-debate-480.webp 480w, assets/media/school-debate-900.webp 900w, assets/media/school-debate-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/school-debate-480.jpg" srcset="assets/media/school-debate-480.jpg 480w, assets/media/school-debate-900.jpg 900w, assets/media/school-debate-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="360" alt="" style="object-position: 52% 50%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">School life</span><span class="visually-hidden">. At the English Speech and Debate Pentathlon. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item" data-group="football">
+              <a class="gallery-button" href="assets/media/football-at-goal-1600.jpg" data-full-webp="assets/media/football-at-goal-1600.webp" data-full-jpg="assets/media/football-at-goal-1600.jpg" data-width="1600" data-height="1067" data-alt="A player in black and orange faces a defender in red beside the goal" data-caption="Looking for a way past the defender." data-group-label="Football">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/football-at-goal-480.webp 480w, assets/media/football-at-goal-900.webp 900w, assets/media/football-at-goal-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/football-at-goal-480.jpg" srcset="assets/media/football-at-goal-480.jpg 480w, assets/media/football-at-goal-900.jpg 900w, assets/media/football-at-goal-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 50% 46%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Football</span><span class="visually-hidden">. Looking for a way past the defender. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item" data-group="golf">
+              <a class="gallery-button" href="assets/media/golf-junior-podium-1600.jpg" data-full-webp="assets/media/golf-junior-podium-1600.webp" data-full-jpg="assets/media/golf-junior-podium-1600.jpg" data-width="1600" data-height="1280" data-alt="Junior golfers hold trophies and certificates on a three-place podium" data-caption="The Maiyue Junior Golf Tour podium." data-group-label="Golf">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/golf-junior-podium-480.webp 480w, assets/media/golf-junior-podium-900.webp 900w, assets/media/golf-junior-podium-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/golf-junior-podium-480.jpg" srcset="assets/media/golf-junior-podium-480.jpg 480w, assets/media/golf-junior-podium-900.jpg 900w, assets/media/golf-junior-podium-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="384" alt="" style="object-position: 50% 52%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Golf</span><span class="visually-hidden">. The Maiyue Junior Golf Tour podium. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item gallery-item--portrait" data-group="music">
+              <a class="gallery-button" href="assets/media/music-student-flutes-1600.jpg" data-full-webp="assets/media/music-student-flutes-1600.webp" data-full-jpg="assets/media/music-student-flutes-1600.jpg" data-width="1600" data-height="2133" data-alt="Student flutists and singers stand in a line beside a large red stage sign" data-caption="Flutes and voices onstage together." data-group-label="Music">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/music-student-flutes-480.webp 480w, assets/media/music-student-flutes-900.webp 900w, assets/media/music-student-flutes-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/music-student-flutes-480.jpg" srcset="assets/media/music-student-flutes-480.jpg 480w, assets/media/music-student-flutes-900.jpg 900w, assets/media/music-student-flutes-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="640" alt="" style="object-position: 50% 70%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Music</span><span class="visually-hidden">. Flutes and voices onstage together. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item gallery-item--film" data-group="stage">
+              <figure class="gallery-film">
+                <div class="film-frame">
+                  <video controls playsinline preload="none" width="1280" height="720" poster="assets/media/jingju-practice-poster.jpg" aria-label="Fan and water-sleeve practice">
+                    <source src="assets/media/jingju-practice.mp4" type="video/mp4">
+                  </video>
+                  <button class="film-start" type="button" aria-label="Play Fan and water-sleeve practice" hidden></button>
+                </div>
+                <figcaption>
+                  <a class="film-link" href="assets/media/jingju-practice.mp4" data-video="assets/media/jingju-practice.mp4" data-poster="assets/media/jingju-practice-poster.jpg" data-caption="Practising fan and water-sleeve movements at home." data-group-label="Stage" aria-label="Open Fan and water-sleeve practice in the larger player">Fan and water-sleeve practice <span aria-hidden="true">&nearr;</span></a>
+                  <span class="film-duration">0:44</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="gallery-item" data-group="outdoors">
+              <a class="gallery-button" href="assets/media/outdoors-parasailing-1600.jpg" data-full-webp="assets/media/outdoors-parasailing-1600.webp" data-full-jpg="assets/media/outdoors-parasailing-1600.jpg" data-width="1600" data-height="1067" data-alt="Two people in life jackets hang in a parasailing harness above a boat wake" data-caption="Parasailing over the water." data-group-label="Outdoors">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/outdoors-parasailing-480.webp 480w, assets/media/outdoors-parasailing-900.webp 900w, assets/media/outdoors-parasailing-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/outdoors-parasailing-480.jpg" srcset="assets/media/outdoors-parasailing-480.jpg 480w, assets/media/outdoors-parasailing-900.jpg 900w, assets/media/outdoors-parasailing-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 50% 39%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Outdoors</span><span class="visually-hidden">. Parasailing over the water. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item" data-group="music">
+              <a class="gallery-button" href="assets/media/music-festival-group-1600.jpg" data-full-webp="assets/media/music-festival-group-1600.webp" data-full-jpg="assets/media/music-festival-group-1600.jpg" data-width="1600" data-height="1200" data-alt="A group of student musicians holds instruments and folders in front of a Super Video Game festival sign" data-caption="With the musicians at the Super Video Game festival." data-group-label="Music">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/music-festival-group-480.webp 480w, assets/media/music-festival-group-900.webp 900w, assets/media/music-festival-group-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/music-festival-group-480.jpg" srcset="assets/media/music-festival-group-480.jpg 480w, assets/media/music-festival-group-900.jpg 900w, assets/media/music-festival-group-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="360" alt="" style="object-position: 50% 53%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Music</span><span class="visually-hidden">. With the musicians at the Super Video Game festival. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item" data-group="football">
+              <a class="gallery-button" href="assets/media/football-through-defence-1600.jpg" data-full-webp="assets/media/football-through-defence-1600.webp" data-full-jpg="assets/media/football-through-defence-1600.jpg" data-width="1600" data-height="1067" data-alt="A footballer in black and orange dribbles between two defenders in white" data-caption="Taking the ball through the defence." data-group-label="Football">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/football-through-defence-480.webp 480w, assets/media/football-through-defence-900.webp 900w, assets/media/football-through-defence-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/football-through-defence-480.jpg" srcset="assets/media/football-through-defence-480.jpg 480w, assets/media/football-through-defence-900.jpg 900w, assets/media/football-through-defence-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 43% 46%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Football</span><span class="visually-hidden">. Taking the ball through the defence. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item gallery-item--portrait" data-group="stage">
+              <a class="gallery-button" href="assets/media/jingju-fan-practice-1600.jpg" data-full-webp="assets/media/jingju-fan-practice-1600.webp" data-full-jpg="assets/media/jingju-fan-practice-1600.jpg" data-width="1600" data-height="2133" data-alt="A young Cindy extends a white water sleeve and holds an open fan in the other hand" data-caption="Practising fan and water-sleeve movements at home." data-group-label="Stage">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/jingju-fan-practice-480.webp 480w, assets/media/jingju-fan-practice-900.webp 900w, assets/media/jingju-fan-practice-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/jingju-fan-practice-480.jpg" srcset="assets/media/jingju-fan-practice-480.jpg 480w, assets/media/jingju-fan-practice-900.jpg 900w, assets/media/jingju-fan-practice-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="640" alt="" style="object-position: 50% 36%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Stage</span><span class="visually-hidden">. Practising fan and water-sleeve movements at home. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item" data-group="football">
+              <a class="gallery-button" href="assets/media/football-goal-team-1600.jpg" data-full-webp="assets/media/football-goal-team-1600.webp" data-full-jpg="assets/media/football-goal-team-1600.jpg" data-width="1600" data-height="1067" data-alt="Football teammates in dark kits pose with their coach in front of the goal" data-caption="A team photo by the goal." data-group-label="Football">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/football-goal-team-480.webp 480w, assets/media/football-goal-team-900.webp 900w, assets/media/football-goal-team-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/football-goal-team-480.jpg" srcset="assets/media/football-goal-team-480.jpg 480w, assets/media/football-goal-team-900.jpg 900w, assets/media/football-goal-team-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 50% 54%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Football</span><span class="visually-hidden">. A team photo by the goal. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item" data-group="everyday">
+              <a class="gallery-button" href="assets/media/school-auditorium-1600.jpg" data-full-webp="assets/media/school-auditorium-1600.webp" data-full-jpg="assets/media/school-auditorium-1600.jpg" data-width="1600" data-height="1200" data-alt="A group takes a selfie from their seats in an auditorium" data-caption="From our row in the auditorium." data-group-label="School life">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/school-auditorium-480.webp 480w, assets/media/school-auditorium-900.webp 900w, assets/media/school-auditorium-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/school-auditorium-480.jpg" srcset="assets/media/school-auditorium-480.jpg 480w, assets/media/school-auditorium-900.jpg 900w, assets/media/school-auditorium-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="360" alt="" style="object-position: 42% 43%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">School life</span><span class="visually-hidden">. From our row in the auditorium. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item" data-group="football">
+              <a class="gallery-button" href="assets/media/football-midfield-1600.jpg" data-full-webp="assets/media/football-midfield-1600.webp" data-full-jpg="assets/media/football-midfield-1600.jpg" data-width="1600" data-height="1067" data-alt="A player carries the ball across midfield between players in orange shirts" data-caption="Moving the ball through midfield." data-group-label="Football">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/football-midfield-480.webp 480w, assets/media/football-midfield-900.webp 900w, assets/media/football-midfield-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/football-midfield-480.jpg" srcset="assets/media/football-midfield-480.jpg 480w, assets/media/football-midfield-900.jpg 900w, assets/media/football-midfield-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 44% 49%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Football</span><span class="visually-hidden">. Moving the ball through midfield. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item gallery-item--panorama" data-group="golf">
+              <a class="gallery-button" href="assets/media/golf-school-award-1600.jpg" data-full-webp="assets/media/golf-school-award-1600.webp" data-full-jpg="assets/media/golf-school-award-1600.jpg" data-width="1600" data-height="744" data-alt="Cindy stands onstage beneath the Girls Golfer of the Year announcement" data-caption="Onstage for the school golf awards." data-group-label="Golf">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/golf-school-award-480.webp 480w, assets/media/golf-school-award-900.webp 900w, assets/media/golf-school-award-1600.webp 1600w" sizes="(max-width: 700px) 92vw, (max-width: 1080px) 62vw, 48vw">
+                  <img src="assets/media/golf-school-award-480.jpg" srcset="assets/media/golf-school-award-480.jpg 480w, assets/media/golf-school-award-900.jpg 900w, assets/media/golf-school-award-1600.jpg 1600w" sizes="(max-width: 700px) 92vw, (max-width: 1080px) 62vw, 48vw" width="480" height="223" alt="" style="object-position: 50% 52%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Golf</span><span class="visually-hidden">. Onstage for the school golf awards. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item" data-group="golf">
+              <a class="gallery-button" href="assets/media/golf-selection-team-1600.jpg" data-full-webp="assets/media/golf-selection-team-1600.webp" data-full-jpg="assets/media/golf-selection-team-1600.jpg" data-width="1600" data-height="1067" data-alt="Golfers hold a team banner beneath the Chinese School Golf Competition sign" data-caption="With the team at the school golf selection tournament." data-group-label="Golf">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/golf-selection-team-480.webp 480w, assets/media/golf-selection-team-900.webp 900w, assets/media/golf-selection-team-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/golf-selection-team-480.jpg" srcset="assets/media/golf-selection-team-480.jpg 480w, assets/media/golf-selection-team-900.jpg 900w, assets/media/golf-selection-team-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 50% 52%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Golf</span><span class="visually-hidden">. With the team at the school golf selection tournament. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item gallery-item--film" data-group="music">
+              <figure class="gallery-film">
+                <div class="film-frame">
+                  <video controls playsinline preload="none" width="1280" height="720" poster="assets/media/music-dragonfruit-live-poster.jpg" aria-label="Dragonfruit Festival">
+                    <source src="assets/media/music-dragonfruit-live.mp4" type="video/mp4">
+                  </video>
+                  <button class="film-start" type="button" aria-label="Play Dragonfruit Festival" hidden></button>
+                </div>
+                <figcaption>
+                  <a class="film-link" href="assets/media/music-dragonfruit-live.mp4" data-video="assets/media/music-dragonfruit-live.mp4" data-poster="assets/media/music-dragonfruit-live-poster.jpg" data-caption="An excerpt from the band’s Dragonfruit Festival set." data-group-label="Music" aria-label="Open Dragonfruit Festival in the larger player">Dragonfruit Festival <span aria-hidden="true">&nearr;</span></a>
+                  <span class="film-duration">0:41</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="gallery-item" data-group="everyday">
+              <a class="gallery-button" href="assets/media/school-group-portrait-1600.jpg" data-full-webp="assets/media/school-group-portrait-1600.webp" data-full-jpg="assets/media/school-group-portrait-1600.jpg" data-width="1600" data-height="1067" data-alt="Students in white polo shirts and staff pose in two rows against a white backdrop" data-caption="A school group portrait." data-group-label="School life">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/school-group-portrait-480.webp 480w, assets/media/school-group-portrait-900.webp 900w, assets/media/school-group-portrait-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/school-group-portrait-480.jpg" srcset="assets/media/school-group-portrait-480.jpg 480w, assets/media/school-group-portrait-900.jpg 900w, assets/media/school-group-portrait-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 50% 51%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">School life</span><span class="visually-hidden">. A school group portrait. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item" data-group="golf">
+              <a class="gallery-button" href="assets/media/golf-invitational-awards-1600.jpg" data-full-webp="assets/media/golf-invitational-awards-1600.webp" data-full-jpg="assets/media/golf-invitational-awards-1600.jpg" data-width="1600" data-height="1066" data-alt="Two people pose with a trophy in front of the SSSA School Golf Invitational Cup backdrop" data-caption="At the School Golf Invitational Cup awards." data-group-label="Golf">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/golf-invitational-awards-480.webp 480w, assets/media/golf-invitational-awards-900.webp 900w, assets/media/golf-invitational-awards-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/golf-invitational-awards-480.jpg" srcset="assets/media/golf-invitational-awards-480.jpg 480w, assets/media/golf-invitational-awards-900.jpg 900w, assets/media/golf-invitational-awards-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="319" alt="" style="object-position: 50% 52%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Golf</span><span class="visually-hidden">. At the School Golf Invitational Cup awards. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item" data-group="football">
+              <a class="gallery-button" href="assets/media/football-contested-ball-1600.jpg" data-full-webp="assets/media/football-contested-ball-1600.webp" data-full-jpg="assets/media/football-contested-ball-1600.jpg" data-width="1600" data-height="1067" data-alt="Two footballers stretch for the same ball near the penalty area" data-caption="A challenge for the ball." data-group-label="Football">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/football-contested-ball-480.webp 480w, assets/media/football-contested-ball-900.webp 900w, assets/media/football-contested-ball-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/football-contested-ball-480.jpg" srcset="assets/media/football-contested-ball-480.jpg 480w, assets/media/football-contested-ball-900.jpg 900w, assets/media/football-contested-ball-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 48% 48%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Football</span><span class="visually-hidden">. A challenge for the ball. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item" data-group="everyday">
+              <a class="gallery-button" href="assets/media/school-awards-group-1600.jpg" data-full-webp="assets/media/school-awards-group-1600.webp" data-full-jpg="assets/media/school-awards-group-1600.jpg" data-width="1600" data-height="1066" data-alt="Students holding awards stand onstage in front of a red lion emblem" data-caption="Onstage together at the school awards." data-group-label="School life">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/school-awards-group-480.webp 480w, assets/media/school-awards-group-900.webp 900w, assets/media/school-awards-group-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/school-awards-group-480.jpg" srcset="assets/media/school-awards-group-480.jpg 480w, assets/media/school-awards-group-900.jpg 900w, assets/media/school-awards-group-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 50% 53%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">School life</span><span class="visually-hidden">. Onstage together at the school awards. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item" data-group="golf">
+              <a class="gallery-button" href="assets/media/golf-selection-portrait-1600.jpg" data-full-webp="assets/media/golf-selection-portrait-1600.webp" data-full-jpg="assets/media/golf-selection-portrait-1600.jpg" data-width="1600" data-height="1067" data-alt="Cindy stands beneath the sign for the International Junior Golf Selection Tournament" data-caption="At the junior golf selection tournament." data-group-label="Golf">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/golf-selection-portrait-480.webp 480w, assets/media/golf-selection-portrait-900.webp 900w, assets/media/golf-selection-portrait-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/golf-selection-portrait-480.jpg" srcset="assets/media/golf-selection-portrait-480.jpg 480w, assets/media/golf-selection-portrait-900.jpg 900w, assets/media/golf-selection-portrait-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 50% 50%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Golf</span><span class="visually-hidden">. At the junior golf selection tournament. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item gallery-item--film" data-group="outdoors">
+              <figure class="gallery-film">
+                <div class="film-frame">
+                  <video controls playsinline preload="none" width="406" height="720" poster="assets/media/outdoors-river-jump-poster.jpg" aria-label="A jump into the river">
+                    <source src="assets/media/outdoors-river-jump.mp4" type="video/mp4">
+                  </video>
+                  <button class="film-start" type="button" aria-label="Play A jump into the river" hidden></button>
+                </div>
+                <figcaption>
+                  <a class="film-link" href="assets/media/outdoors-river-jump.mp4" data-video="assets/media/outdoors-river-jump.mp4" data-poster="assets/media/outdoors-river-jump-poster.jpg" data-caption="A jump into the river on a woodland hike." data-group-label="Outdoors" aria-label="Open A jump into the river in the larger player">A jump into the river <span aria-hidden="true">&nearr;</span></a>
+                  <span class="film-duration">0:11</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="gallery-item" data-group="football">
+              <a class="gallery-button" href="assets/media/football-medal-team-1600.jpg" data-full-webp="assets/media/football-medal-team-1600.webp" data-full-jpg="assets/media/football-medal-team-1600.jpg" data-width="1600" data-height="1067" data-alt="Football teammates wearing medals pose on the pitch with their goalkeeper in yellow" data-caption="Medals and a team photo on the pitch." data-group-label="Football">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/football-medal-team-480.webp 480w, assets/media/football-medal-team-900.webp 900w, assets/media/football-medal-team-1600.webp 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw">
+                  <img src="assets/media/football-medal-team-480.jpg" srcset="assets/media/football-medal-team-480.jpg 480w, assets/media/football-medal-team-900.jpg 900w, assets/media/football-medal-team-1600.jpg 1600w" sizes="(max-width: 700px) 46vw, (max-width: 1080px) 31vw, 24vw" width="480" height="320" alt="" style="object-position: 50% 53%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Football</span><span class="visually-hidden">. Medals and a team photo on the pitch. Open larger view.</span></span>
+              </a>
+            </li>
+            <li class="gallery-item gallery-item--panorama" data-group="golf">
+              <a class="gallery-button" href="assets/media/golf-awards-auditorium-1600.jpg" data-full-webp="assets/media/golf-awards-auditorium-1600.webp" data-full-jpg="assets/media/golf-awards-auditorium-1600.jpg" data-width="1600" data-height="744" data-alt="A wider view from the audience of the Golfer of the Year presentation, with the lectern and trophies visible" data-caption="The golf awards from the audience." data-group-label="Golf">
+                <picture>
+                  <source type="image/webp" srcset="assets/media/golf-awards-auditorium-480.webp 480w, assets/media/golf-awards-auditorium-900.webp 900w, assets/media/golf-awards-auditorium-1600.webp 1600w" sizes="(max-width: 700px) 92vw, (max-width: 1080px) 62vw, 48vw">
+                  <img src="assets/media/golf-awards-auditorium-480.jpg" srcset="assets/media/golf-awards-auditorium-480.jpg 480w, assets/media/golf-awards-auditorium-900.jpg 900w, assets/media/golf-awards-auditorium-1600.jpg 1600w" sizes="(max-width: 700px) 92vw, (max-width: 1080px) 62vw, 48vw" width="480" height="223" alt="" style="object-position: 50% 48%" loading="lazy" decoding="async">
+                </picture>
+                <span class="gallery-label"><span class="gallery-tag">Golf</span><span class="visually-hidden">. The golf awards from the audience. Open larger view.</span></span>
+              </a>
+            </li>
+          </ul>
+        </fieldset>
       </section>
     </main>
 

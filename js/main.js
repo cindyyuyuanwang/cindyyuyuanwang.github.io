@@ -2,19 +2,16 @@
   const root = document.documentElement;
 
   // Mobile drawer
-  const toggle = document.querySelector(".menu-toggle");
-  const menu = document.getElementById("mobile-menu");
-  const setMenu = open => {
-    toggle.setAttribute("aria-expanded", String(open));
-    toggle.querySelector(".menu-toggle-label").textContent = open ? "Close" : "Menu";
-    menu.hidden = !open;
-  };
-  toggle.addEventListener("click", () => setMenu(menu.hidden));
-  menu.addEventListener("click", event => { if (event.target.closest("a")) setMenu(false); });
-  document.addEventListener("keydown", event => {
-    if (event.key === "Escape" && !menu.hidden) { setMenu(false); toggle.focus(); }
-  });
-  matchMedia("(min-width: 961px)").addEventListener("change", event => { if (event.matches) setMenu(false); });
+  const drawer = document.querySelector(".mobile-drawer");
+  if (drawer) {
+    drawer.addEventListener("click", event => { if (event.target.closest("a")) drawer.open = false; });
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && drawer.open) {
+        drawer.open = false;
+        drawer.querySelector("summary").focus();
+      }
+    });
+  }
 
   // Highlight the section currently in view (none while in the hero)
   const navLinks = [...document.querySelectorAll('.desktop-nav a[href^="#"]')];
@@ -31,7 +28,7 @@
     }, { rootMargin: "-45% 0px -50% 0px" });
     const hero = document.getElementById("top");
     if (hero) observer.observe(hero);
-    navLinks.forEach(link => { const target = document.querySelector(link.hash); if (target) observer.observe(target); });
+    navLinks.forEach(link => { const target = document.getElementById(link.hash.slice(1)); if (target) observer.observe(target); });
   }
 
   // Only one video plays at a time
@@ -39,22 +36,23 @@
     document.querySelectorAll("video").forEach(video => { if (video !== event.target) video.pause(); });
   }, true);
 
-  // Gallery filter
-  const items = [...document.querySelectorAll(".gallery-item")];
-  const filters = [...document.querySelectorAll(".filter")];
-  const status = document.getElementById("gallery-status");
-  filters.forEach(button => button.addEventListener("click", () => {
-    const group = button.dataset.filter;
-    filters.forEach(b => b.setAttribute("aria-pressed", String(b === button)));
-    let shown = 0;
-    items.forEach(item => {
-      const visible = group === "all" || item.dataset.group === group;
-      item.hidden = !visible;
-      item.classList.toggle("is-entering", visible);
-      if (visible) shown += 1;
+  document.querySelectorAll(".gallery-choice").forEach(choice => choice.addEventListener("change", () => {
+    document.querySelectorAll(".gallery-film video").forEach(video => {
+      if (!video.getClientRects().length) video.pause();
     });
-    status.textContent = `Showing ${shown} ${group === "all" ? "items" : button.textContent.toLowerCase() + " items"}.`;
   }));
+
+  document.querySelectorAll(".film-frame").forEach(frame => {
+    const video = frame.querySelector("video");
+    const start = frame.querySelector(".film-start");
+    start.hidden = false;
+    start.addEventListener("click", () => {
+      video.focus();
+      video.play().catch(() => { start.hidden = true; });
+    });
+    video.addEventListener("play", () => { start.hidden = true; });
+    video.addEventListener("ended", () => { start.hidden = false; });
+  });
 
   // Lightbox
   const dialog = document.getElementById("lightbox");
@@ -65,12 +63,13 @@
   let current = 0;
   let opener = null;
 
-  const visibleButtons = () => items.filter(item => !item.hidden).map(item => item.querySelector(".gallery-button"));
+  const links = [...document.querySelectorAll(".gallery-grid a")];
+  const visibleLinks = () => links.filter(link => link.getClientRects().length);
 
-  const render = () => {
-    const list = visibleButtons();
-    const button = list[current];
-    const data = button.dataset;
+  const render = (playVideo = false) => {
+    const list = visibleLinks();
+    const link = list[current];
+    const data = link.dataset;
     stage.replaceChildren();
     if (data.video) {
       const video = document.createElement("video");
@@ -81,6 +80,7 @@
       video.src = data.video;
       video.setAttribute("aria-label", data.caption);
       stage.append(video);
+      if (playVideo) video.play().catch(() => { /* Native controls remain available. */ });
     } else {
       const picture = document.createElement("picture");
       const source = document.createElement("source");
@@ -99,19 +99,21 @@
   };
 
   const step = delta => {
-    const length = visibleButtons().length;
+    const length = visibleLinks().length;
     current = (current + delta + length) % length;
     render();
   };
 
   const close = () => { if (dialog.open) dialog.close(); };
 
-  items.forEach(item => item.querySelector(".gallery-button").addEventListener("click", event => {
+  links.forEach(link => link.addEventListener("click", event => {
+    if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
     opener = event.currentTarget;
-    current = visibleButtons().indexOf(opener);
-    render();
-    root.classList.add("lightbox-open");
+    current = visibleLinks().indexOf(opener);
     dialog.showModal();
+    root.classList.add("lightbox-open");
+    render(true);
     dialog.querySelector(".lightbox-close").focus();
   }));
 
@@ -119,6 +121,7 @@
   dialog.querySelectorAll(".lightbox-nav").forEach(button => button.addEventListener("click", () => step(Number(button.dataset.step))));
   dialog.addEventListener("click", event => { if (event.target === dialog || event.target === stage) close(); });
   dialog.addEventListener("keydown", event => {
+    if (event.target.tagName === "VIDEO") return;
     if (event.key === "ArrowRight") { event.preventDefault(); step(1); }
     else if (event.key === "ArrowLeft") { event.preventDefault(); step(-1); }
   });
