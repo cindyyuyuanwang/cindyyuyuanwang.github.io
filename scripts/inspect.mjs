@@ -119,7 +119,7 @@ async function inspect() {
 
       const overflow = () => page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
       entry.gallery = { filters: {} };
-      for (const group of ["music", "stage", "golf", "everyday", "all"]) {
+      for (const group of ["music", "stage", "golf", "football", "everyday", "outdoors", "all"]) {
         await page.locator(`.filter[data-filter="${group}"]`).click();
         entry.gallery.filters[group] = await page.evaluate(g => {
           const visible = [...document.querySelectorAll(".gallery-item")].filter(el => !el.hidden && el.offsetParent !== null);
@@ -147,7 +147,7 @@ async function inspect() {
       entry.gallery.closedWithEscape = await page.waitForFunction(() => !document.getElementById("lightbox").open && !document.documentElement.classList.contains("lightbox-open"), null, { timeout: 3000 }).then(() => true, () => false);
       entry.gallery.focusReturned = await page.evaluate(() => document.activeElement?.classList.contains("gallery-button"));
       await page.locator('.filter[data-filter="music"]').click();
-      await page.locator('.gallery-item:not([hidden]) .gallery-button.is-video').click();
+      await page.locator('.gallery-item:not([hidden]) .gallery-button[data-video$="/flute-concert-section.mp4"]').click();
       entry.gallery.lightboxVideo = await page.evaluate(() => new Promise(resolve => {
         const v = document.querySelector(".lightbox-media video");
         if (!v) return resolve({ present: false });
@@ -179,7 +179,7 @@ async function inspect() {
     }
     await fs.writeFile(path.join(output, "report.json"), JSON.stringify(report, null, 2));
     const galleryFailed = g => !g || Object.values(g.filters).some(f => f.wrongGroup || f.overflow || !f.visible)
-      || g.filters.all.visible !== 17 || !g.lightboxOpen.open || !g.lightboxOpen.imageLoaded || !g.lightboxOpen.imageFits
+      || g.filters.all.visible !== 40 || !g.lightboxOpen.open || !g.lightboxOpen.imageLoaded || !g.lightboxOpen.imageFits
       || g.lightboxOverflow || g.afterArrowRight === g.lightboxOpen.count || g.afterArrowLeft !== g.lightboxOpen.count
       || !g.closedWithEscape || !g.focusReturned || !g.lightboxVideo.present || g.lightboxVideo.readyState < 1 || g.lightboxVideo.error
       || !g.closedWithButton || g.finalOverflow;

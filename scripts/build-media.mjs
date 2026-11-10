@@ -15,30 +15,51 @@ const fontsDir = path.join(root, 'assets', 'fonts');
 const MAX_VIDEO_BYTES = 12 * 1024 * 1024;
 
 export const photos = [
-  { src: 'IMG_8487.JPG', slug: 'flute-concert-hall', group: 'music' },
   { src: 'IMG_4004.JPG', slug: 'flute-orchestra-rehearsal', group: 'music' },
-  { src: 'IMG_4297.JPG', slug: 'flute-orchestra-seated', group: 'music' },
-  { src: 'IMG_4298.JPG', slug: 'flute-with-section', group: 'music' },
+  { src: '39146a4d2jf0b4e04dc6deb4bb245fbb.JPG', slug: 'football-through-defence', group: 'football' },
+  { src: 'acb8c23ba89e31222bb5021f07c43516.jpg', slug: 'theatre-full-cast', group: 'stage' },
+  { src: 'Weixin Image_20261110074517_138_28.png', slug: 'music-orchestra-conductor', group: 'music' },
+  { src: 'Weixin Image_20261110074517_125_28.jpg', slug: 'golf-on-the-fairway', group: 'golf' },
+  { src: 'Weixin Image_20261110074517_142_28.jpg', slug: 'outdoors-ridge-group', group: 'outdoors' },
+  { src: '4d67488160e7bc65cdc823e288de323b.jpg', slug: 'flute-festival-duet', group: 'music' },
   { src: 'IMG_6696.JPEG', slug: 'jingju-full-costume', group: 'stage' },
-  { src: 'IMG_2916.JPG', slug: 'jingju-fan-practice', group: 'stage' },
-  { src: 'IMG_6689.JPG', slug: 'jingju-backstage', group: 'stage' },
   { src: 'IMG_3586.JPG', slug: 'golf-follow-through', group: 'golf' },
+  { src: 'Weixin Image_20261110081934_144_28.jpg', slug: 'school-friends', group: 'everyday' },
+  { src: '4f0d33c97v77b6e2ac43a0337950dde9.JPG', slug: 'football-tournament-team', group: 'football' },
+  { src: 'IMG_6689.JPG', slug: 'jingju-backstage', group: 'stage' },
+  { src: '9e19a12511833e1c433bb30e0f413f7a.jpg', slug: 'music-festival-stage', group: 'music' },
+  { src: 'IMG_4587.JPG', slug: 'golf-approach', group: 'golf' },
+  { src: '15891.jpg', slug: 'everyday-hiking', group: 'outdoors' },
+  { src: 'b8783269611ba22c8c6cb0d7c94ffeb7.jpg', slug: 'theatre-three-performers', group: 'stage' },
+  { src: 'IMG_8780.JPEG', slug: 'school-debate', group: 'everyday' },
+  { src: '4e1854e9alf2a4940a06d14e95cb408a.JPG', slug: 'football-at-goal', group: 'football' },
+  { src: 'IMG_4595.JPG', slug: 'golf-junior-podium', group: 'golf' },
+  { src: 'ab644821cc41e204ed0202f49fc5e07e.jpg', slug: 'music-student-flutes', group: 'music' },
+  { src: 'IMG_9997.JPG', slug: 'outdoors-parasailing', group: 'outdoors' },
+  { src: 'Weixin Image_20261110074517_135_28.jpg', slug: 'music-festival-group', group: 'music' },
   { src: 'IMG_5352.JPG', slug: 'golf-iron-shot', group: 'golf' },
-  { src: 'IMG_6108.JPG', slug: 'golf-league-tee-shot', group: 'golf' },
-  { src: 'IMG_4592.JPG', slug: 'golf-junior-tour-swing', group: 'golf' },
-  { src: 'IMG_5742.JPG', slug: 'everyday-notebook', group: 'everyday' },
-  { src: '15891.jpg', slug: 'everyday-hiking', group: 'everyday' },
-  { src: 'a6ca3be25p14616418e512b5d49bfeb5.JPG', slug: 'everyday-football', group: 'everyday' },
-  { src: 'IMG_4664.JPEG', slug: 'everyday-stream-scramble', group: 'everyday' },
+  { src: 'IMG_2916.JPG', slug: 'jingju-fan-practice', group: 'stage' },
+  { src: 'a20f12d59lb79547c77a53ca5b02ffde.JPG', slug: 'football-goal-team', group: 'football' },
+  { src: 'Weixin Image_20261110081937_146_28.jpg', slug: 'school-auditorium', group: 'everyday' },
+  { src: '0e5f31ea79f769404a7313c34c5da530.jpg', slug: 'golf-school-award', group: 'golf' },
+  { src: '8b7075064ld68fa407f72fac97f6a715.jpg', slug: 'football-midfield', group: 'football' },
+  { src: 'IMG_3581.JPG', slug: 'golf-selection-team', group: 'golf' },
+  { src: 'Weixin Image_20261110074517_136_28.jpg', slug: 'school-group-portrait', group: 'everyday' },
+  { src: 'IMG_5360.JPG', slug: 'golf-invitational-awards', group: 'golf' },
+  { src: 'ab6f3dad3i2ccf2149434bb8e37c8f3e.JPG', slug: 'football-contested-ball', group: 'football' },
+  { src: '5c8fee7f7c8146c4cd7127dad50be886.jpg', slug: 'school-awards-group', group: 'everyday' },
+  { src: 'IMG_7768.JPG', slug: 'golf-selection-portrait', group: 'golf' },
+  { src: 'b76ab5733l715b9eb3b4dad3e76bc046.jpg', slug: 'football-medal-team', group: 'football' },
+  { src: 'ff10aa51a96968168aa47f36265cb5eb.jpg', slug: 'golf-awards-auditorium', group: 'golf' },
 ];
 
-const widths = { 1600: 'display', 900: 'card' };
+const widths = { 480: 'thumbnail', 900: 'card', 1600: 'display' };
 
 export const videos = [
-  // 371_raw opens on a wide shot that zooms in at ~1.2s; start after the zoom settles.
-  { src: '371_raw.MP4', slug: 'flute-ensemble', start: 2.0, end: null, poster: 22, maxHeight: 720 },
-  // Steady single take; keep the closing fan pose.
+  { src: '372_raw.MOV', slug: 'flute-concert-section', start: 0, end: null, poster: 15, maxHeight: 720 },
   { src: 'IMG_2908.MOV', slug: 'jingju-practice', start: 0.3, end: null, poster: 40.5, maxHeight: 720 },
+  { src: '8238_raw.MP4', slug: 'music-dragonfruit-live', start: 120, end: 161, poster: 143, maxHeight: 720 },
+  { src: 'IMG_4779.MOV', slug: 'outdoors-river-jump', start: 0, end: null, poster: 1.3, maxHeight: 720 },
 ];
 
 function locateTool(name) {
